@@ -73,7 +73,7 @@ class PredIdConfig():
 
     # training
     train_embeddings = False
-    nepochs          = 100
+    nepochs          = 4   #100
     dropout          = 0.5
     batch_size       = 30
     lr_method        = "adam"

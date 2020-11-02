@@ -28,6 +28,7 @@ def main():
                         config.processing_tag, config.max_iter)
     # train model
     model.train(train, dev, test)
+    model.evaluate(test)
 
 if __name__ == "__main__":
     main()

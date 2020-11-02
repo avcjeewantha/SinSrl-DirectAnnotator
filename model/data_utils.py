@@ -323,8 +323,8 @@ def get_chunk_type(tok, idx_to_tag):
         tuple: "B", "PER"
     """
     tag_name = idx_to_tag[tok]
-    tag_class = tag_name.split('-')[0]
-    tag_type = tag_name.split('-')[-1]
+    tag_class = tag_name.split('+')[0]
+    tag_type = tag_name.split('+')[-1]
     return tag_class, tag_type
 
 def get_chunks(seq, tags, config):
@@ -339,8 +339,8 @@ def get_chunks(seq, tags, config):
         tags = {"B-PER": 4, "I-PER": 5, "B-LOC": 3}
         result = [("PER", 0, 2), ("LOC", 3, 4)]
     """
-    if config.task=='predId':
-        tags[NONE]=55555
+    # if config.task=='predId':
+    #     tags[NONE]=55555
     default = tags[NONE]
     idx_to_tag = {idx: tag for tag, idx in tags.items()}
     chunks = []
