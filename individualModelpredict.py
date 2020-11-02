@@ -1,3 +1,4 @@
+from model.srlIdConfig import SrlIdConfig
 from model.srl_model import SRLModel
 from model.predIdConfig import PredIdConfig
 import sys
@@ -28,17 +29,18 @@ def align_data(data):
     return data_aligned
 
 
-def interactive_shell(model):
+def interactive_shell(model, task):
     """Creates interactive shell to play with model
     Args:
         model: instance of SRLModel
+        task: predId or srlId
     """
-    model.logger.info("""
-This is an interactive mode.
-To exit, enter 'exit'.
-You can enter a sentence like
-input> මම ගෙදර යමි""")
-
+    if(task == "predId"):
+        model.logger.info("""This is an interactive mode. To exit, enter 'exit'. You can enter a sentence like , 
+        input> මම ගෙදර යමි .""")
+    elif(task == "srlId"):
+        model.logger.info("""This is an interactive mode. To exit, enter 'exit'. You can enter a sentence like , 
+            input> මම ගෙදර යමි-B-go.02 .""")
     while True:
         try:
             # for python 2
@@ -46,35 +48,30 @@ input> මම ගෙදර යමි""")
         except NameError:
             # for python 3
             sentence = input("input> ")
-
         words_raw = sentence.strip().split(" ")
 
         if words_raw == ["exit"]:
             break
-
         preds = model.predict(words_raw)
         to_print = align_data({"input": words_raw, "output": preds})
 
         for key, seq in to_print.items():
             model.logger.info(seq)
 
-
 def main():
-    # create instance of config
-    config = PredIdConfig()
-    config.layer = int(sys.argv[1])
-    config.step = int(sys.argv[2])
-    print("iteration: " + str(config.layer))
-    print("step: " + str(config.step))
-
+    task = str(sys.argv[1])
+    if(task == "predId"):
+        # create instance of config
+        config = PredIdConfig()
+    elif(task == "srlId"):
+        # create instance of config
+        config = SrlIdConfig()
     # build model
     model = SRLModel(config)
     model.build()
     model.restore_session(config.dir_model)
-
     # interact
-    interactive_shell(model)
-
+    interactive_shell(model,task)
 
 if __name__ == "__main__":
     main()

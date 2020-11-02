@@ -16,3 +16,7 @@
 /.idea/shelf/gitignore_file_added.xml
 /.idea/shelf/gitignore_file_added/shelved.patch
 /.idea/workspace.xml
+/data/srlIdData/words.txt
+/data/srlIdData/chars.txt
+/data/srlIdData/fasttext_300_nsw.trimmed.npz
+/data/srlIdData/tags.txt
