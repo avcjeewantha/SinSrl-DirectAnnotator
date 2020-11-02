@@ -19,6 +19,7 @@ trimm your word vectors.
 """.format(filename)
         super(MyIOError, self).__init__(message)
 
+
 class CoNLLDataset(object):
     """Class that iterates over CoNLL Dataset
     __iter__ method yields a tuple (words, tags)
@@ -33,20 +34,23 @@ class CoNLLDataset(object):
             pass
         ```
     """
+
     def __init__(self, filename, processing_word=None, processing_tag=None,
-                 max_iter=None):
+                 max_iter=None, task=None):
         """
         Args:
             filename: path to the file
-            processing_words: (optional) function that takes a word as input
-            processing_tags: (optional) function that takes a tag as input
+            processing_word: (optional) function that takes a word as input
+            processing_tag: (optional) function that takes a tag as input
             max_iter: (optional) max number of sentences to yield
+            task: srlId or predId
         """
         self.filename = filename
         self.processing_word = processing_word
         self.processing_tag = processing_tag
         self.max_iter = max_iter
         self.length = None
+        self.task = task
 
     def __iter__(self):
         niter = 0
@@ -62,8 +66,11 @@ class CoNLLDataset(object):
                         yield words, tags
                         words, tags = [], []
                 else:
-                    ls = line.split(' ')
-                    word, tag = ls[0],ls[-1]
+                    ls = line.split('\t')
+                    word, tag = ls[0], ls[-1]
+                    if self.task == "srlId" and '.0' in word:
+                        word = 'පුකරෝථන-ක්‍රියාව'
+                        tag = 'pred'
                     if self.processing_word is not None:
                         word = self.processing_word(word)
                     if self.processing_tag is not None:
@@ -79,6 +86,7 @@ class CoNLLDataset(object):
                 self.length += 1
 
         return self.length
+
 
 def get_vocabs(datasets):
     """Build vocabulary from an iterable of datasets objects
@@ -97,6 +105,7 @@ def get_vocabs(datasets):
     print("- done. {} tokens".format(len(vocab_words)))
     return vocab_words, vocab_tags
 
+
 def get_char_vocab(dataset):
     """Build char vocabulary from an iterable of datasets objects
     Args:
@@ -109,6 +118,7 @@ def get_char_vocab(dataset):
         for word in words:
             vocab_char.update(word)
     return vocab_char
+
 
 def get_fasttext_vocab(vocab_words, filename):
     """Load vocab from file
@@ -125,10 +135,11 @@ def get_fasttext_vocab(vocab_words, filename):
         try:
             vector = fasttext_model.wv[word]
             vocab.add(word)
-        except:
-            None
+        except KeyError:
+            pass
     print("- done. {} tokens".format(len(vocab)))
     return vocab
+
 
 def write_vocab(vocab, filename):
     """Writes a vocab to a file
@@ -148,6 +159,7 @@ def write_vocab(vocab, filename):
                 f.write(word)
     print("- done. {} tokens".format(len(vocab)))
 
+
 def load_vocab(filename):
     """Loads vocab from a file
     Args:
@@ -166,6 +178,7 @@ def load_vocab(filename):
         raise MyIOError(filename)
     return d
 
+
 def export_trimmed_fasttext_vectors(vocab, fasttext_filename, trimmed_filename, dim):
     """Saves fasttext vectors in numpy array
     Args:
@@ -181,9 +194,10 @@ def export_trimmed_fasttext_vectors(vocab, fasttext_filename, trimmed_filename, 
             embedding = fasttext_model.wv[word].tolist()
             word_idx = vocab[word]
             embeddings[word_idx] = np.asarray(embedding)
-        except:
-            None
+        except KeyError:
+            pass
     np.savez_compressed(trimmed_filename, embeddings=embeddings)
+
 
 def get_trimmed_fasttext_vectors(filename):
     """
@@ -198,17 +212,19 @@ def get_trimmed_fasttext_vectors(filename):
     except IOError:
         raise MyIOError(filename)
 
+
 def get_processing_word(vocab_words=None, vocab_chars=None,
-                    lowercase=False, chars=False, allow_unk=True):
+                        lowercase=False, chars=False, allow_unk=True):
     """Return lambda function that transform a word (string) into list,
     or tuple of (list, id) of int corresponding to the ids of the word and
     its corresponding characters.
     Args:
-        vocab: dict[word] = idx
+        vocab_words: dict[word] = idx
     Returns:
         f("cat") = ([12, 4, 32], 12345)
                  = (list of char ids, word id)
     """
+
     def f(word):
         # 0. get chars of words
         if vocab_chars is not None and chars == True:
@@ -232,15 +248,16 @@ def get_processing_word(vocab_words=None, vocab_chars=None,
                 if allow_unk:
                     word = vocab_words[UNK]
                 else:
-                    raise Exception("Unknow key is not allowed. Check that "\
-                                    "your vocab (tags?) is correct")
+                    raise Exception("Unknow key is not allowed. Check that your vocab (tags?) is correct")
 
         # 3. return tuple char ids, word id
-        if vocab_chars is not None and chars == True:
+        if vocab_chars is not None and chars is True:
             return char_ids, word
         else:
             return word
+
     return f
+
 
 def _pad_sequences(sequences, pad_tok, max_length):
     """
@@ -254,11 +271,12 @@ def _pad_sequences(sequences, pad_tok, max_length):
 
     for seq in sequences:
         seq = list(seq)
-        seq_ = seq[:max_length] + [pad_tok]*max(max_length - len(seq), 0)
-        sequence_padded +=  [seq_]
+        seq_ = seq[:max_length] + [pad_tok] * max(max_length - len(seq), 0)
+        sequence_padded += [seq_]
         sequence_length += [min(len(seq), max_length)]
 
     return sequence_padded, sequence_length
+
 
 def pad_sequences(sequences, pad_tok, nlevels=1):
     """
@@ -292,6 +310,7 @@ def pad_sequences(sequences, pad_tok, nlevels=1):
 
     return sequence_padded, sequence_length
 
+
 def minibatches(data, minibatch_size):
     """
     Args:
@@ -314,6 +333,7 @@ def minibatches(data, minibatch_size):
     if len(x_batch) != 0:
         yield x_batch, y_batch
 
+
 def get_chunk_type(tok, idx_to_tag):
     """
     Args:
@@ -327,7 +347,8 @@ def get_chunk_type(tok, idx_to_tag):
     tag_type = tag_name.split('+')[-1]
     return tag_class, tag_type
 
-def get_chunks(seq, tags, config):
+
+def get_chunks(seq, tags):
     """Given a sequence of tags, group entities and their position
     Args:
         seq: [4, 4, 0, 0, ...] sequence of labels

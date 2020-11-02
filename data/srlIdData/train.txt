@@ -1,7 +1,7 @@
--DOCSTART- O
+-DOCSTART-	O
 
-මම O
-ගෙදර O
-යමි-B-go.02 B-go.01
-. O
+මම	O
+ගෙදර	O
+යමි-B-go.02	B-go.01
+.	O
 

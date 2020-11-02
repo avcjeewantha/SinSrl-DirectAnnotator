@@ -572,9 +572,9 @@ class SRLModel(BaseModel):
                 lab_pred = lab_pred[:length]
                 accs    += [a==b for (a, b) in zip(lab, lab_pred)]
 
-                lab_chunks      = set(get_chunks(lab, self.config.vocab_tags, self.config))
+                lab_chunks      = set(get_chunks(lab, self.config.vocab_tags))
                 lab_pred_chunks = set(get_chunks(lab_pred,
-                                                 self.config.vocab_tags, self.config))
+                                                 self.config.vocab_tags))
 
                 correct_preds += len(lab_chunks & lab_pred_chunks)
                 total_preds   += len(lab_pred_chunks)
