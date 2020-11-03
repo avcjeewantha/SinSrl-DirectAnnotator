@@ -7,7 +7,7 @@ class BaseModel(object):
         """Defines self.config and self.logger
 
         Args:
-            config: (PredIdConfig instance) class with hyper parameters,
+            config: (Config instance) class with hyper parameters,
                 vocab and embeddings
 
         """
@@ -76,6 +76,7 @@ class BaseModel(object):
     def close_session(self):
         """Closes the session"""
         self.sess.close()
+        tf.reset_default_graph()
 
     def add_summary(self):
         """Defines variables for Tensorboard

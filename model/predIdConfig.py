@@ -75,7 +75,7 @@ class PredIdConfig():
     layer = 10 #iteration
     step = 2
     train_embeddings = False
-    nepochs          = 4   #100
+    nepochs          = 10   #100
     dropout          = 0.5
     batch_size       = 30
     lr_method        = "adam"

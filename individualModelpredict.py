@@ -49,6 +49,10 @@ def interactive_shell(model, task):
             # for python 3
             sentence = input("input> ")
         words_raw = sentence.strip().split(" ")
+        if (words_raw[-1][-1] == '.' and words_raw[-1] != '.'):
+            words_raw = words_raw[:-1] + [words_raw[-1][:-1]] + ['.']
+        elif (words_raw[-1] != '.'):
+            words_raw.append('.')
 
         if words_raw == ["exit"]:
             break
