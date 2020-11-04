@@ -4,6 +4,10 @@ python 3.6
 
 tensorflow 1.4.0
 
+data preprocessing (for predicate identifier) - python build_data.py predId
+
+data preprocessing (for srl tagger) - python build_data.py srlId
+
 data to train the predicate identifier - in /data/predIdData
 
 data to train the srl tagger - in /data/srlIdData
@@ -26,3 +30,7 @@ srl tagger - python individualModelpredict.py srlId
           
           
 to get the final prediction for a given sinhala sentence - python finalPredict.py
+
+to tune hparams - python trainWithhparamsTuning.py predId and python trainWithhparamsTuning.py srlId
+
+logs are stored in /results directory

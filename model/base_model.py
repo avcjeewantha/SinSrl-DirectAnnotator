@@ -96,9 +96,18 @@ class BaseModel(object):
         best_score = 0
         nepoch_no_imprv = 0 # for early stopping
         self.add_summary() # tensorboard
+        self.logger.info("no of layers {:}".format(self.config.layer))
+        self.logger.info("no of steps {:}".format(self.config.step))
+        self.logger.info("train_embeddings {:}".format(self.config.train_embeddings))
+        self.logger.info("no of nepochs {:}".format(self.config.nepochs))
+        self.logger.info("dropout {:}".format(self.config.dropout))
+        self.logger.info("batch_size {:}".format(self.config.batch_size))
+        self.logger.info("learning rate {:}".format(self.config.lr))
+        self.logger.info("lr_decay {:}".format(self.config.lr_decay))
+        self.logger.info("model_type {:}".format(self.config.model_type))
         for epoch in range(self.config.nepochs):
-            self.logger.info("Epoch {:} out of {:}".format(epoch + 1,
-                        self.config.nepochs))
+            # self.logger.info("Epoch {:} out of {:}".format(epoch + 1,
+            #             self.config.nepochs))
 
             score = self.run_epoch(train, dev, epoch, test)
             self.config.lr *= self.config.lr_decay # decay learning rate
