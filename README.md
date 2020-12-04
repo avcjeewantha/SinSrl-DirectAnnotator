@@ -4,7 +4,7 @@ python 3.6
 
 tensorflow 1.4.0
 
-gensim
+gensim 3.4.0
 
 data preprocessing (for predicate identifier) - python build_data.py predId
 
