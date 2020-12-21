@@ -14,7 +14,7 @@ def model_build_train_eval(config):
     model = SRLModel(config)
     model.build()
     # create datasets
-    dev = CoNLLDataset(config.filename_dev, config.processing_word,
+    dev = CoNLLDataset(config.filename_dev, config.processing_word, #only initilize the dataset
                        config.processing_tag, config.max_iter, config.task)
     train = CoNLLDataset(config.filename_train, config.processing_word,
                          config.processing_tag, config.max_iter, config.task)

@@ -1,6 +1,7 @@
 import numpy as np
 from gensim.models.wrappers import FastText
 import gensim
+import re
 
 # shared global variables to be imported from model also
 UNK = "$UNK$"
@@ -66,17 +67,20 @@ class CoNLLDataset(object):
                         yield words, tags
                         words, tags = [], []
                 else:
-                    ls = line.split('\t')
+                    # ls = line.split('\t')
+                    ls = line.split(' ')
                     word, tag = ls[0], ls[-1]
                     if self.task == "srlId" and '.0' in word:
-                        word = 'පුකරෝථන-ක්‍රියාව'
+                        # word = 'පුකරෝථන-ක්‍රියාව'
+                        wordL = re.split('-I|-B', word)
+                        word = wordL[0]
                         tag = 'pred'
                     if self.processing_word is not None:
                         word = self.processing_word(word)
                     if self.processing_tag is not None:
                         tag = self.processing_tag(tag)
-                    words += [word]
-                    tags += [tag]
+                    words += [word] #if processing_word is not None words = [([12, 4, 32], 12345) , ([11, 4, 72], 15345), ... ] =[(list of char ids, word id), ...]
+                    tags += [tag] #if processing_word is not None words = [12345, ...] = [word id, ...]
 
     def __len__(self):
         """Iterates once over the corpus to set and store length"""
@@ -187,16 +191,16 @@ def export_trimmed_fasttext_vectors(vocab, fasttext_filename, trimmed_filename, 
         trimmed_filename: a path where to store a matrix in npy
         dim: (int) dimension of embeddings
     """
-    embeddings = np.zeros([len(vocab), dim])
+    embeddings = np.zeros([len(vocab), dim]) # np.zeros([2,1]) --> [[q],[q]]
     fasttext_model = gensim.models.KeyedVectors.load(fasttext_filename)
     for word in vocab:
         try:
             embedding = fasttext_model.wv[word].tolist()
             word_idx = vocab[word]
-            embeddings[word_idx] = np.asarray(embedding)
+            embeddings[word_idx] = np.asarray(embedding) #[[1.23,13.23,...],[..],..]  <- np.zeros([no.of words in words.txt,300])
         except KeyError:
             pass
-    np.savez_compressed(trimmed_filename, embeddings=embeddings)
+    np.savez_compressed(trimmed_filename, embeddings=embeddings) #Save several arrays into a single file in compressed .npz format
 
 
 def get_trimmed_fasttext_vectors(filename):
@@ -213,8 +217,7 @@ def get_trimmed_fasttext_vectors(filename):
         raise MyIOError(filename)
 
 
-def get_processing_word(vocab_words=None, vocab_chars=None,
-                        lowercase=False, chars=False, allow_unk=True):
+def get_processing_word(vocab_words=None, vocab_chars=None, chars=False, allow_unk=True):
     """Return lambda function that transform a word (string) into list,
     or tuple of (list, id) of int corresponding to the ids of the word and
     its corresponding characters.
@@ -235,8 +238,8 @@ def get_processing_word(vocab_words=None, vocab_chars=None,
                     char_ids += [vocab_chars[char]]
 
         # 1. preprocess word
-        if lowercase:
-            word = word.lower()
+        # if lowercase:
+        #     word = word.lower()
         if word.isdigit():
             word = NUM
 
@@ -252,9 +255,10 @@ def get_processing_word(vocab_words=None, vocab_chars=None,
 
         # 3. return tuple char ids, word id
         if vocab_chars is not None and chars is True:
-            return char_ids, word
+            return char_ids, word #char embedding, return f("cat") = ([12, 4, 32], 12345) = (list of char ids, word id)
         else:
-            return word
+            return word # return only the 12345 = word id
+                        # if tags --> return the tag as it is
 
     return f
 

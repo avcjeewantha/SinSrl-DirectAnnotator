@@ -56,10 +56,10 @@ class SRLModel(BaseModel):
         """
         # perform padding of the given data
         if self.config.use_chars:
-            char_ids, word_ids = zip(*words)
-            word_ids, sequence_lengths = pad_sequences(word_ids, 0)
-            char_ids, word_lengths = pad_sequences(char_ids, pad_tok=0,
-                nlevels=2)
+            char_ids, word_ids = zip(*words) #char_ids: [([74, 74], [71, 58, 28, 25, 74, 29, 0], [57, 76, 74, 75], [38]), ([5, 1, 75], [29, 76, 66, 44], [21, 61], [11, 46, 29, 0, 3, 62], [29, 69], [61, 32, 22, 32], [38])], word_ids:[(927, 431, 648, 447), (267, 1135, 352, 236, 320, 374, 447)]
+            word_ids, sequence_lengths = pad_sequences(word_ids, 0) #to have the same length i.e word_ids:[[927, 431, 648, 447, 0, 0, 0], [267, 1135, 352, 236, 320, 374, 447]] sequence_lengths:[4,7]
+            char_ids, word_lengths = pad_sequences(char_ids, pad_tok=0, #word_lengths:[[2, 7, 4, 1, 0, 0, 0], [3, 4, 2, 6, 2, 4, 1]]
+                nlevels=2) #char_ids:[[[74, 74, 0, 0, 0, 0, 0], [71, 58, 28, 25, 74, 29, 0], [57, 76, 74, 75, 0, 0, 0], [38, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0]], [[5, 1, 75, 0, 0, 0, 0], [29, 76, 66, 44, 0, 0, 0], [21, 61, 0, 0, 0, 0, 0], [11, 46, 29, 0, 3, 62, 0], [29, 69, 0, 0, 0, 0, 0], [61, 32, 22, 32, 0, 0, 0], [38, 0, 0, 0, 0, 0, 0]]]
         else:
             word_ids, sequence_lengths = pad_sequences(words, 0)
 
@@ -74,7 +74,7 @@ class SRLModel(BaseModel):
             feed[self.word_lengths] = word_lengths
 
         if labels is not None:
-            labels, _ = pad_sequences(labels, 0)
+            labels, _ = pad_sequences(labels, 0) #labels:[[319, 319, 241, 319], [319, 319, 319, 166, 337, 319, 319]]
             feed[self.labels] = labels
 
         if lr is not None:
@@ -599,7 +599,7 @@ class SRLModel(BaseModel):
         Returns:
             preds: list of tags (string), one for each word in the sentence
         """
-        words = [self.config.processing_word(w) for w in words_raw]
+        words = [self.config.processing_word(w) for w in words_raw] #words: [([74, 74], 927), ([20, 76, 57, 46], 447), ([61, 74, 75], 447), ([38], 447)]
         if type(words[0]) == tuple:
             words = zip(*words)
         pred_ids, _ = self.predict_batch([words])

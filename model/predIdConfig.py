@@ -36,9 +36,8 @@ class PredIdConfig():
 
         # 2. get processing functions that map str -> id
         self.processing_word = get_processing_word(self.vocab_words,
-                self.vocab_chars, lowercase=True, chars=self.use_chars)
-        self.processing_tag  = get_processing_word(self.vocab_tags,
-                lowercase=False, allow_unk=False)
+                self.vocab_chars, chars=self.use_chars)
+        self.processing_tag  = get_processing_word(self.vocab_tags, allow_unk=False)
 
         # 3. get pre-trained embeddings
         self.embeddings = (get_trimmed_fasttext_vectors(self.filename_trimmed)
@@ -72,17 +71,17 @@ class PredIdConfig():
     filename_chars = "data/predIdData/chars.txt"
 
     # training
-    layer = 10 #iteration
-    step = 2
-    train_embeddings = False
-    nepochs          = 10   #100
+    layer = 2 #iteration
+    step = 3
+    train_embeddings = True
+    nepochs          = 1   #20
     dropout          = 0.5
-    batch_size       = 30
+    batch_size       = 2
     lr_method        = "adam"
     lr               = 0.001
     lr_decay         = 0.97
     clip             = 3 # if negative, no clipping
-    nepoch_no_imprv  = 100
+    nepoch_no_imprv  = 1 #100
 
     # model hyperparameters
     hidden_size_char = 150 # lstm on chars

@@ -27,15 +27,15 @@ def model_build_train_eval(config):
     model.close_session()
 
 def train_loop(config):
-    for layer in range(2,3):
-        for step in range(2,3):
-            for train_embeddings in [True, False]:
-                for nepochs in range(2,4):
-                    for dropout in [0.5, 0.5]:
-                        for batch_size in range(30, 31):
-                            for lr in [0.001, 0.002]:
-                                for lr_decay in [0.97, 0.98]:
-                                    for model_type in ['slstm', 'lstm']:
+    for layer in range(2,5):
+        for step in [3]:
+            for train_embeddings in [True]:
+                for nepochs in [20, 100]:
+                    for dropout in [0.5]:
+                        for batch_size in [2, 32]:
+                            for lr in [0.001]:
+                                for lr_decay in [0.97]:
+                                    for model_type in ['slstm']:
                                         config.layer = layer
                                         config.step = step
                                         config.train_embeddings = train_embeddings

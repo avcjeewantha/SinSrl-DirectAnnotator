@@ -45,6 +45,7 @@ def interactive_shell(model, task):
         try:
             # for python 2
             sentence = raw_input("input> ")
+            # sentence = "මම ගෙදර යමි ."
         except NameError:
             # for python 3
             sentence = input("input> ")
