@@ -533,7 +533,7 @@ class SRLModel(BaseModel):
             _, train_loss, summary = self.sess.run(
                     [self.train_op, self.loss, self.merged], feed_dict=fd)
 
-            # prog.update(i + 1, [("train loss", train_loss)])
+            prog.update(i + 1, [("train loss", train_loss)])
 
             # tensorboard
             if i % 10 == 0:
@@ -542,15 +542,15 @@ class SRLModel(BaseModel):
         metrics = self.run_evaluate(dev)
         msg = " dev - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
-        # self.logger.info(msg)
+        self.logger.info(msg)
 
         start_time = time.time()            
         metrics2 = self.run_evaluate(test)
         msg2 = " test - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics2.items()])
-        # self.logger.info(msg2)
-        # print("Len test "+str(len(test)))
-        # print("Decoding Time = %.3f seconds\n" % (time.time()-start_time))
+        self.logger.info(msg2)
+        print("Len test "+str(len(test)))
+        print("Decoding Time = %.3f seconds\n" % (time.time()-start_time))
             
         return metrics["f1"]
 

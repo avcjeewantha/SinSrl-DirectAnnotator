@@ -6,8 +6,10 @@ import sys
 import os
 
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
+finalResults = []
+allParams = []
 
 def model_build_train_eval(config):
     # build model
@@ -22,8 +24,10 @@ def model_build_train_eval(config):
     test = CoNLLDataset(config.filename_test, config.processing_word,
                         config.processing_tag, config.max_iter, config.task)
     # train model
-    model.train(train, dev, test)
-    model.evaluate(test)
+    params = model.train(train, dev, test)
+    results = model.evaluate(test)
+    finalResults.append(results)
+    allParams.append(params)
     model.close_session()
 
 def train_loop(config):
@@ -53,10 +57,18 @@ def main():
         # create instance of config
         config = PredIdConfig()
         train_loop(config)
+        config.logger.info(finalResults)
+        config.logger.info(allParams)
     elif task == "srlId":
         # create instance of config
         config = SrlIdConfig()
         train_loop(config)
+        config.logger.info(finalResults)
+        maxAcc = max([[res["acc"], finalResults.index(res)] for res in finalResults])
+        paramsOfMaxAcc = allParams[maxAcc[1]]
+        config.logger.info(allParams)
+        config.logger.info("max acc: {:}".format(maxAcc[0]))
+        config.logger.info("params of max acc: {:}".format(paramsOfMaxAcc))
 
 
 if __name__ == "__main__":
