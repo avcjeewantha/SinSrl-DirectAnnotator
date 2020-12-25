@@ -70,7 +70,7 @@ class CoNLLDataset(object):
                     # ls = line.split('\t')
                     ls = line.split(' ')
                     word, tag = ls[0], ls[-1]
-                    if self.task == "srlId" and '.0' in word:
+                    if self.task == "srlId" and '.' in tag:
                         # word = 'පුකරෝථන-ක්‍රියාව'
                         wordL = re.split('-I|-B', word)
                         word = wordL[0]

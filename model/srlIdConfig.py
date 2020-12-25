@@ -73,16 +73,16 @@ class SrlIdConfig():
 
     # training
     layer = 2  # iteration
-    step = 3
+    step = 3 #window_size - how many left/right context words are used
     train_embeddings = True
-    nepochs = 20 # 100
+    nepochs = 20
     dropout = 0.5
     batch_size = 2
-    lr_method = "adam"
+    lr_method = "adam" # adam or adagrad or sgd or rmsprop
     lr = 0.001
     lr_decay = 0.97
     clip = 3  # if negative, no clipping
-    nepoch_no_imprv = 100
+    nepoch_no_imprv = 10 #for early stopping
 
     # model hyperparameters
     hidden_size_char = 150  # lstm on chars

@@ -72,25 +72,25 @@ class PredIdConfig():
 
     # training
     layer = 2 #iteration
-    step = 3
+    step = 3 #window_size - how many left/right context words are used
     train_embeddings = True
-    nepochs          = 1   #20
+    nepochs          = 20
     dropout          = 0.5
     batch_size       = 2
-    lr_method        = "adam"
+    lr_method        = "adam" # adam or adagrad or sgd or rmsprop
     lr               = 0.001
     lr_decay         = 0.97
     clip             = 3 # if negative, no clipping
-    nepoch_no_imprv  = 1 #100
+    nepoch_no_imprv  = 10 #for early stopping
 
     # model hyperparameters
     hidden_size_char = 150 # lstm on chars
     hidden_size_lstm = 300 # lstm on word embeddings
-    hidden_size_sum=600
+    hidden_size_sum= 600
     # NOTE: if both chars and crf, only 1.6x slower on GPU
     use_crf = True # if crf, training is 1.7x slower on CPU
     use_chars = True # if char embedding, training is 3.5x slower on CPU
-    char_use_mlstm=False 
-    random_initialize=True
+    char_use_mlstm= False
+    random_initialize= True
     task = "predId" #srlId
-    model_type='slstm'
+    model_type= 'slstm'
