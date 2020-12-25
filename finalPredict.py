@@ -46,7 +46,7 @@ def main():
         predConfig = PredIdConfig()
 
         #update the model path
-        predConfig.model_name = model_name
+        predConfig.dir_model = predConfig.dir_model_root+model_name
 
         # build model
         predModel = SRLModel(predConfig)

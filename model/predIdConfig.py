@@ -83,6 +83,7 @@ class PredIdConfig():
     clip             = 3 # if negative, no clipping
     nepoch_no_imprv  = 10 #for early stopping
 
+
     # model hyperparameters
     hidden_size_char = 150 # lstm on chars
     hidden_size_lstm = 300 # lstm on word embeddings
@@ -96,6 +97,5 @@ class PredIdConfig():
     model_type= 'slstm'
 
     # output model name
-    model_name = "1"
-    dir_model = dir_model_root + model_name +"/"
+    dir_model = dir_model_root
 

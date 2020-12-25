@@ -59,7 +59,7 @@ def train_loop(config,objective):
                 for nepochs in [20, 100]:
                     for dropout in [0.5]:
                         for batch_size in [2, 32]:
-                            for lr in [0.001]:
+                            for lr in [0.05]:
                                 for lr_decay in [0.97]:
                                     for model_type in ['slstm']:
                                         config.layer = layer
@@ -72,14 +72,15 @@ def train_loop(config,objective):
                                         config.lr_decay = lr_decay
                                         config.model_type = model_type
                                         if objective == "train":
-                                            config.model_name = model_type+"_lr"+str(lr)+"_batch"+str(batch_size)+"_layer"+str(layer)
+                                            model_name = model_type+"_lr"+str(lr)+"_batch"+str(batch_size)+"_layer"+str(layer)
+                                            config.dir_model = config.dir_model_root+model_name
                                             model_build_train_eval(config)
                                         elif objective == "retrain":
                                             model_build_retrain_eval(config)
 
 ## Train again the best model
 def reTrain(config,model_name):
-    config.model_name = model_name
+    config.dir_model = config.dir_model_root+model_name
     train_loop(config,"retrain")
 
 
