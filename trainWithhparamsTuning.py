@@ -50,6 +50,7 @@ def train_loop(config):
                                         config.lr = lr
                                         config.lr_decay = lr_decay
                                         config.model_type = model_type
+                                        config.model_name = model_type+"_lr"+str(lr)+"_batch"str(batch_size)+"_layer"+str(layer)
                                         model_build_train_eval(config)
 
 def main():

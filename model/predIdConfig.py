@@ -45,7 +45,7 @@ class PredIdConfig():
 
     # general config
     dir_output = "results/test/predIdData/"
-    dir_model  = dir_output + "model.weights/"
+    dir_model_root  = dir_output + "model.weights/"
     path_log   = dir_output + "log.txt"
 
     # embeddings
@@ -94,3 +94,8 @@ class PredIdConfig():
     random_initialize= True
     task = "predId" #srlId
     model_type= 'slstm'
+
+    # output model name
+    model_name = "1"
+    dir_model = dir_model_root + model_name +"/"
+

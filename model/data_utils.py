@@ -55,7 +55,7 @@ class CoNLLDataset(object):
 
     def __iter__(self):
         niter = 0
-        with open(self.filename) as f:
+        with open(self.filename,encoding="utf8") as f:
             words, tags = [], []
             for line in f:
                 line = line.strip()
@@ -155,7 +155,7 @@ def write_vocab(vocab, filename):
         write a word per line
     """
     print("Writing vocab...")
-    with open(filename, "w") as f:
+    with open(filename, "w" ,encoding="utf8") as f:
         for i, word in enumerate(vocab):
             if i != len(vocab) - 1:
                 f.write("{}\n".format(word))
@@ -173,7 +173,7 @@ def load_vocab(filename):
     """
     try:
         d = dict()
-        with open(filename) as f:
+        with open(filename, encoding="utf8") as f:
             for idx, word in enumerate(f):
                 word = word.strip()
                 d[word] = idx
