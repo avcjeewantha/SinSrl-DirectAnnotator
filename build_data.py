@@ -1,5 +1,4 @@
 import sys
-
 from model.predIdConfig import PredIdConfig
 from model.data_utils import CoNLLDataset, get_vocabs, UNK, NUM, \
     get_fasttext_vocab, write_vocab, load_vocab, get_char_vocab, \
@@ -38,7 +37,7 @@ def process_data(config, task):
     write_vocab(vocab_chars, config.filename_chars) #write characters in train words to chars.txt file
 
 
-def main():
+def main(task=None):
     """Procedure to build data
     You MUST RUN this procedure. It iterates over the whole dataset (train,
     dev and test) and extract the vocabularies in terms of words, tags, and
@@ -47,7 +46,8 @@ def main():
     It then extract the relevant Fasttext vectors and stores them in a np array
     such that the i-th entry corresponds to the i-th word in the vocabulary.
     """
-    task = str(sys.argv[1])
+    if(task == None):
+        task = str(sys.argv[1])
     if task == "predId":
         # get config and processing of words
         config = PredIdConfig(load=False)

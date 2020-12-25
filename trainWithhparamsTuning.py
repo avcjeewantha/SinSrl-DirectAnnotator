@@ -2,6 +2,7 @@ from model.data_utils import CoNLLDataset
 from model.srlIdConfig import SrlIdConfig
 from model.srl_model import SRLModel
 from model.predIdConfig import PredIdConfig
+import build_data
 import sys
 import os
 
@@ -53,6 +54,7 @@ def train_loop(config):
 
 def main():
     task = str(sys.argv[1])
+    build_data.main(task)
     if task == "predId":
         # create instance of config
         config = PredIdConfig()
