@@ -39,35 +39,45 @@ def displayOutput(words_raw, seq):
 	return seq
 
 def main():
-    # create instance of config
-    predConfig = PredIdConfig()
-    # build model
-    predModel = SRLModel(predConfig)
-    predModel.build()
-    predModel.restore_session(predConfig.dir_model)
-    sentence = input("input> ")   #මම ගෙදර යමි .
-    words_raw = sentence.strip().split(" ") #['මම', 'ගෙදර', 'යමි', '.']
-    if (words_raw[-1][-1] == '.' and words_raw[-1] != '.'):
-        words_raw = words_raw[:-1] + [words_raw[-1][:-1]] + ['.']
-    elif (words_raw[-1] != '.'):
-        words_raw.append('.')
-    preds = predModel.predict(words_raw)    #['O', 'O', 'B-go.02', 'O']
-    predModel.close_session()
-    seqList = []
-    predWiseTags(words_raw, preds, seqList)
 
-    # create instance of config
-    srlConfig = SrlIdConfig()
-    # build model
-    srlModel = SRLModel(srlConfig)
-    srlModel.build()
-    srlModel.restore_session(srlConfig.dir_model)
-    for seq in seqList: #[['O', 'O', 'B-go.02', 'O']]
-        inputToNextModel = makeInputToNext(words_raw, seq) #['මම', 'ගෙදර', 'යමි-B-go.02', '.']
-        finalPreds = srlModel.predict(inputToNextModel) #['B-ARG0', 'B-ARG1','pred' , 'O']
-        output = displayOutput(inputToNextModel, finalPreds) #['B-ARG0', 'B-ARG1','B-go.02' , 'O']
-        print(output)
-    srlModel.close_session()
+    model_name = str(sys.argv[1]) # The name of the model to use for prediction
+    if model_name:
+        # create instance of config
+        predConfig = PredIdConfig()
+
+        #update the model path
+        predConfig.model_name = model_name
+
+        # build model
+        predModel = SRLModel(predConfig)
+        predModel.build()
+        predModel.restore_session(predConfig.dir_model)
+        sentence = input("input> ")   #මම ගෙදර යමි .
+        words_raw = sentence.strip().split(" ") #['මම', 'ගෙදර', 'යමි', '.']
+        if (words_raw[-1][-1] == '.' and words_raw[-1] != '.'):
+            words_raw = words_raw[:-1] + [words_raw[-1][:-1]] + ['.']
+        elif (words_raw[-1] != '.'):
+            words_raw.append('.')
+        preds = predModel.predict(words_raw)    #['O', 'O', 'B-go.02', 'O']
+        predModel.close_session()
+        seqList = []
+        predWiseTags(words_raw, preds, seqList)
+
+        # create instance of config
+        srlConfig = SrlIdConfig()
+        # build model
+        srlModel = SRLModel(srlConfig)
+        srlModel.build()
+        srlModel.restore_session(srlConfig.dir_model)
+        for seq in seqList: #[['O', 'O', 'B-go.02', 'O']]
+            inputToNextModel = makeInputToNext(words_raw, seq) #['මම', 'ගෙදර', 'යමි-B-go.02', '.']
+            finalPreds = srlModel.predict(inputToNextModel) #['B-ARG0', 'B-ARG1','pred' , 'O']
+            output = displayOutput(inputToNextModel, finalPreds) #['B-ARG0', 'B-ARG1','B-go.02' , 'O']
+            print(output)
+        srlModel.close_session()
+
+    else:
+        print("Invalid command. PLease enter the name of the prediction model !")
 
 if __name__ == "__main__":
     main()

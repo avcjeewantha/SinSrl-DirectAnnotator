@@ -128,7 +128,7 @@ class BaseModel(object):
                 self.save_session()
                 best_score = score
                 self.logger.info("- new best score!")
-                self.logger.info("Saved best model at epoch {}".format(epoch)
+                self.logger.info("Saved best model at epoch {}".format(epoch))
             else:
                 nepoch_no_imprv += 1
                 if nepoch_no_imprv >= self.config.nepoch_no_imprv:
