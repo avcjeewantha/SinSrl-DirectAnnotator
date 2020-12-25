@@ -36,3 +36,13 @@ to get the final prediction for a given sinhala sentence - python finalPredict.p
 to tune hparams - python trainWithhparamsTuning.py predId and python trainWithhparamsTuning.py srlId
 
 logs are stored in /results directory
+
+
+### When run in COLAB
+execute following code snippet inside the browser console to remain connected the colab session
+
+function ClickConnect(){
+    console.log("Working"); 
+    document.querySelector("colab-connect-button").click() 
+}
+setInterval(ClickConnect,60000)
