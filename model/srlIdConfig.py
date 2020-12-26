@@ -46,7 +46,7 @@ class SrlIdConfig():
 
     # general config
     dir_output = "results/test/srlIdData/"
-    dir_model = dir_output + "model.weights/"
+    dir_model_root = dir_output + "model.weights/"
     path_log = dir_output + "log.txt"
 
     # embeddings
@@ -95,3 +95,6 @@ class SrlIdConfig():
     random_initialize = True
     task = "srlId"  # srlId
     model_type = 'slstm'
+
+    # output model name
+    dir_model = dir_model_root

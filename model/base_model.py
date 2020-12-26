@@ -1,5 +1,6 @@
 import os
 import tensorflow as tf
+import json
 
 class BaseModel(object):
     """Generic class for general methods that are not specific to SRL"""
@@ -73,6 +74,7 @@ class BaseModel(object):
             os.makedirs(self.config.dir_model)
         self.saver.save(self.sess, self.config.dir_model)
 
+
     def close_session(self):
         """Closes the session"""
         self.sess.close()
@@ -87,14 +89,15 @@ class BaseModel(object):
         self.file_writer = tf.summary.FileWriter(self.config.dir_output,
                 self.sess.graph)
 
-    def train(self, train, dev, test):
+    def train(self, train, dev, test, best_score_got):
         """Performs training with early stopping and lr exponential decay
         Args:
             train: dataset that yields tuple of (sentences, tags)
             dev: dataset
         """
+        param_dic = {}
         params = []
-        best_score = 0
+        best_score = best_score_got
         nepoch_no_imprv = 0 # for early stopping
         self.add_summary() # tensorboard
         self.logger.info("no of layers {:}".format(self.config.layer))
@@ -106,6 +109,16 @@ class BaseModel(object):
         self.logger.info("learning rate {:}".format(self.config.lr))
         self.logger.info("lr_decay {:}".format(self.config.lr_decay))
         self.logger.info("model_type {:}".format(self.config.model_type))
+        param_dic["no of layers"] = self.config.layer
+        param_dic["no of steps"] = self.config.step
+        param_dic["train_embeddings"] = self.config.train_embeddings
+        param_dic["no of nepochs"] = self.config.nepochs
+        param_dic["dropout"] = self.config.dropout
+        param_dic["batch_size"] = self.config.batch_size
+        param_dic["learning rate"] = self.config.lr
+        param_dic["lr_decay"] = self.config.lr_decay
+        param_dic["model_type"] = self.config.model_type
+
         params.append(["no of layers {:}".format(self.config.layer),
                        "no of steps {:}".format(self.config.step),
                        "train_embeddings {:}".format(self.config.train_embeddings),
@@ -115,6 +128,7 @@ class BaseModel(object):
                        "learning rate {:}".format(self.config.lr),
                        "lr_decay {:}".format(self.config.lr_decay),
                        "model_type {:}".format(self.config.model_type)])
+
         for epoch in range(self.config.nepochs):
             self.logger.info("Epoch {:} out of {:}".format(epoch + 1,
                         self.config.nepochs))
@@ -127,8 +141,13 @@ class BaseModel(object):
                 nepoch_no_imprv = 0
                 self.save_session()
                 best_score = score
+                param_dic["best_score"] = best_score
                 self.logger.info("- new best score!")
                 self.logger.info("Saved best model at epoch {}".format(epoch))
+
+                with open(self.config.dir_model+'bestModelParams.txt', 'w') as outfile:
+                    json.dump(param_dic, outfile)
+                outfile.close()
             else:
                 nepoch_no_imprv += 1
                 if nepoch_no_imprv >= self.config.nepoch_no_imprv:
