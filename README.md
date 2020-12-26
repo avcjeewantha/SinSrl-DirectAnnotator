@@ -1,41 +1,43 @@
 # direct-sin-srl
 
-python 3.6
+1. First satisfy the following requirements
+    
+    `python 3.6`  
+    `tensorflow 1.4.0`  
+    `gensim 3.4.0`  
+    
+2. Training data should be in following directories
 
-tensorflow 1.4.0
+    The predicate identifier - `/data/predIdData`  
+    The srl tagger - `/data/srlIdData`
 
-gensim 3.4.0
+3. Fasttext word embedding model should be in `/data` directory
 
-data preprocessing (for predicate identifier) - python build_data.py predId
+4. To train the model execute following script
 
-data preprocessing (for srl tagger) - python build_data.py srlId
+    The predicate identifier - `python train.py predId train`  
+    The srl tagger - `python train.py srlId train`
 
-data to train the predicate identifier - in /data/predIdData
+5. If training was interrupted. It can be continued again using following command
+    
+    `python train.py predId retrain {{modelname}}`  
+    `python train.py srlId retrain {{modelname}}`  
+    model name here should be the directory name that saves checkpoints for the model that should continue with training. They can be found at 
+    `root/results/test/predIdData/model.weights`  
+    `root/results/test/srlIdData/model.weights`  
+    
+6. Training parameters can be configured using `parameters.json` file which available in the project root directory
+    
+7. To get the predictions from each trained models -
 
-data to train the srl tagger - in /data/srlIdData
+    predicate identifier - `python individualModelpredict.py predId {{modelname}}`  
+    srl tagger - `python individualModelpredict.py srlId {{modelname}}`  
+               
+8.To get the final prediction for a given Sinhala sentence 
+    
+    `python finalPredict.py {{predId model name}} {{srlId model name}}`  
 
-
-put a fasttext word embedding model into /data directory
-
-
-to train the predicate identifier - python train.py predId (Until making hparams tuning, you can change configurations in predIdConfig.py file)
-
-to train the srl tagger - python train.py srlId  (Until making hparams tuning, you can change configurations in srlPredConfig.py file)
-
-
-to see the predictions from each trained models -
-
-
-predicate identifier - python individualModelpredict.py predId
-          
-srl tagger - python individualModelpredict.py srlId
-          
-          
-to get the final prediction for a given sinhala sentence - python finalPredict.py
-
-to tune hparams - python trainWithhparamsTuning.py predId and python trainWithhparamsTuning.py srlId
-
-logs are stored in /results directory
+9. logs are stored in `/results` directory
 
 
 ### When run in COLAB

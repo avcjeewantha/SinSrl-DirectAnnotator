@@ -35,10 +35,10 @@ def interactive_shell(model, task):
         model: instance of SRLModel
         task: predId or srlId
     """
-    if(task == "predId"):
+    if task == "predId":
         model.logger.info("""This is an interactive mode. To exit, enter 'exit'. You can enter a sentence like , 
         input> මම ගෙදර යමි .""")
-    elif(task == "srlId"):
+    elif task == "srlId":
         model.logger.info("""This is an interactive mode. To exit, enter 'exit'. You can enter a sentence like , 
             input> මම ගෙදර යමි-B-go.02 .""")
     while True:
@@ -50,9 +50,9 @@ def interactive_shell(model, task):
             # for python 3
             sentence = input("input> ")
         words_raw = sentence.strip().split(" ")
-        if (words_raw[-1][-1] == '.' and words_raw[-1] != '.'):
+        if words_raw[-1][-1] == '.' and words_raw[-1] != '.':
             words_raw = words_raw[:-1] + [words_raw[-1][:-1]] + ['.']
-        elif (words_raw[-1] != '.'):
+        elif words_raw[-1] != '.':
             words_raw.append('.')
 
         if words_raw == ["exit"]:
@@ -63,20 +63,30 @@ def interactive_shell(model, task):
         for key, seq in to_print.items():
             model.logger.info(seq)
 
+
 def main():
+    global config
     task = str(sys.argv[1])
-    if(task == "predId"):
-        # create instance of config
-        config = PredIdConfig()
-    elif(task == "srlId"):
-        # create instance of config
-        config = SrlIdConfig()
-    # build model
-    model = SRLModel(config)
-    model.build()
-    model.restore_session(config.dir_model)
-    # interact
-    interactive_shell(model,task)
+    model_name = str(sys.argv[1])  # The name of the model to use for prediction
+    if model_name:
+        if task == "predId":
+            # create instance of config
+            config = PredIdConfig()
+            config.dir_model = config.dir_model_root + model_name + "/"
+        elif task == "srlId":
+            # create instance of config
+            config = SrlIdConfig()
+            config.dir_model = config.dir_model_root + model_name + "/"
+
+        # build model
+        model = SRLModel(config)
+        model.build()
+        model.restore_session(config.dir_model)
+        # interact
+        interactive_shell(model, task)
+    else:
+        print("Enter the model name to predict...")
+
 
 if __name__ == "__main__":
     main()
