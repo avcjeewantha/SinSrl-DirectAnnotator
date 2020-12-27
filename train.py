@@ -127,7 +127,8 @@ def reTrain(config, params, model_name):
 
 def printResult(config):
     config.logger.info(finalResults)
-    maxAcc = max([[res["acc"], finalResults.index(res)] for res in finalResults])
+    accList = [[res["f1"], finalResults.index(res)] for res in finalResults]
+    maxAcc = max(accList, key=lambda x: x[0])
     paramsOfMaxAcc = allParams[maxAcc[1]]
     config.logger.info(allParams)
     config.logger.info("max acc: {:}".format(maxAcc[0]))
