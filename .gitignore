@@ -10,7 +10,5 @@
 /results
 *.DS_Store
 /.idea
-/data/srlIdData/words.txt
-/data/srlIdData/chars.txt
-/data/srlIdData/fasttext_300_nsw.trimmed.npz
-/data/srlIdData/tags.txt
+/data/srlIdData
+/data/predIdData
