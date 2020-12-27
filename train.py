@@ -165,7 +165,7 @@ def main():
         if objective == "train":
             # create instance of config
             config = SrlIdConfig()
-            train_loop(config, "train")
+            train_loop(config, params)
             printResult(config)
         elif objective == "retrain":
             model_name = str(sys.argv[3])

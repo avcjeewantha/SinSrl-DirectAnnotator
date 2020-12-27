@@ -81,7 +81,7 @@ class PredIdConfig():
     lr               = 0.001
     lr_decay         = 0.97
     clip             = 3 # if negative, no clipping
-    nepoch_no_imprv  = 10 #for early stopping
+    nepoch_no_imprv  = 30 #for early stopping
 
 
     # model hyperparameters
