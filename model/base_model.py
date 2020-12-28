@@ -130,8 +130,9 @@ class BaseModel(object):
                        "model_type {:}".format(self.config.model_type)])
 
         for epoch in range(self.config.nepochs):
-            self.logger.info("Epoch {:} out of {:}".format(epoch + 1,
-                        self.config.nepochs))
+            self.logger.info("Epoch {:} out of {:} of model no. - {:}".format(epoch + 1,
+                        self.config.nepochs, len(params)))
+            self.logger.info(param_dic)
 
             score = self.run_epoch(train, dev, epoch, test)
             self.config.lr *= self.config.lr_decay # decay learning rate
