@@ -94,11 +94,11 @@ class BaseModel(object):
         Args:
             train: dataset that yields tuple of (sentences, tags)
             dev: dataset
-            :param best_score_got: previous best score useful only when retrain. otherwise 0
+            :param best_score_got: previous best score useful only when retrain first step. otherwise 0
         """
         param_dic = {}
         params = []
-        best_score = 0
+        best_score = best_score_got
         nepoch_no_imprv = 0 # for early stopping
         self.add_summary() # tensorboard
         self.logger.info("no of layers {:}".format(self.config.layer))

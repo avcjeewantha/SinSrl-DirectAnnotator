@@ -85,6 +85,7 @@ def model_build_retrain_eval(config, best_score):
         allModelStats = json.load(json_file)
         finalResults = allModelStats["finalResults"]  # replace model stats from saved file
         allParams = allModelStats["allParams"]
+
         params = model.train(train, dev, test, best_score)
         results = model.evaluate(test)
         finalResults.append(results)  # append new stats into the list
