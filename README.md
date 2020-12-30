@@ -43,8 +43,11 @@
 ### When run in COLAB
 execute following code snippet inside the browser console to remain connected the colab session
 
+```
 function ClickConnect(){
     console.log("Working"); 
     document.querySelector("colab-connect-button").click() 
 }
 setInterval(ClickConnect,60000)
+
+```
