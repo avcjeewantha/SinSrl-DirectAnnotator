@@ -1,9 +1,13 @@
 import numpy as np
 import tensorflow as tf
+import tensorflow_addons as tfa
 import time
 from .data_utils import minibatches, pad_sequences, get_chunks
 from .general_utils import Progbar
 from .base_model import BaseModel
+
+tf.compat.v1.disable_eager_execution()
+tf.compat.v1.disable_resource_variables()
 
 class SRLModel(BaseModel):
     """Specialized class of Model for SRL"""
@@ -18,29 +22,29 @@ class SRLModel(BaseModel):
     def add_placeholders(self):
         """Define placeholders = entries to computational graph"""
         # shape = (batch size, max length of sentence in batch)
-        self.word_ids = tf.placeholder(tf.int32, shape=[None, None],
+        self.word_ids = tf.compat.v1.placeholder(tf.int32, shape=[None, None],
                         name="word_ids")
 
         # shape = (batch size)
-        self.sequence_lengths = tf.placeholder(tf.int32, shape=[None],
+        self.sequence_lengths = tf.compat.v1.placeholder(tf.int32, shape=[None],
                         name="sequence_lengths")
 
         # shape = (batch size, max length of sentence, max length of word)
-        self.char_ids = tf.placeholder(tf.int32, shape=[None, None, None],
+        self.char_ids = tf.compat.v1.placeholder(tf.int32, shape=[None, None, None],
                         name="char_ids")
 
         # shape = (batch_size, max_length of sentence)
-        self.word_lengths = tf.placeholder(tf.int32, shape=[None, None],
+        self.word_lengths = tf.compat.v1.placeholder(tf.int32, shape=[None, None],
                         name="word_lengths")
 
         # shape = (batch size, max length of sentence in batch)
-        self.labels = tf.placeholder(tf.int32, shape=[None, None],
+        self.labels = tf.compat.v1.placeholder(tf.int32, shape=[None, None],
                         name="labels")
 
         # hyper parameters
-        self.dropout = tf.placeholder(dtype=tf.float32, shape=[],
+        self.dropout = tf.compat.v1.placeholder(dtype=tf.float32, shape=[],
                         name="dropout")
-        self.lr = tf.placeholder(dtype=tf.float32, shape=[],
+        self.lr = tf.compat.v1.placeholder(dtype=tf.float32, shape=[],
                         name="lr")
 
     def get_feed_dict(self, words, labels=None, lr=None, dropout=None):
@@ -92,10 +96,10 @@ class SRLModel(BaseModel):
         and we don't train the vectors. Otherwise, a random matrix with
         the correct shape is initialized.
         """
-        with tf.variable_scope("words"):
+        with tf.compat.v1.variable_scope("words"):
             if self.config.embeddings is None:
                 self.logger.info("WARNING: randomly initializing word vectors")
-                _word_embeddings = tf.get_variable(
+                _word_embeddings = tf.compat.v1.get_variable(
                         name="_word_embeddings",
                         dtype=tf.float32,
                         shape=[self.config.nwords, self.config.dim_word])
@@ -106,21 +110,21 @@ class SRLModel(BaseModel):
                         dtype=tf.float32,
                         trainable=self.config.train_embeddings)
 
-            word_embeddings = tf.nn.embedding_lookup(_word_embeddings,
-                    self.word_ids, name="word_embeddings")
+            word_embeddings = tf.nn.embedding_lookup(params=_word_embeddings,
+                    ids=self.word_ids, name="word_embeddings")
 
-        with tf.variable_scope("chars"):
+        with tf.compat.v1.variable_scope("chars"):
             if self.config.use_chars:
                 # get char embeddings matrix
-                _char_embeddings = tf.get_variable(
+                _char_embeddings = tf.compat.v1.get_variable(
                         name="_char_embeddings",
                         dtype=tf.float32,
                         shape=[self.config.nchars, self.config.dim_char])
-                char_embeddings = tf.nn.embedding_lookup(_char_embeddings,
-                        self.char_ids, name="char_embeddings")
+                char_embeddings = tf.nn.embedding_lookup(params=_char_embeddings,
+                        ids=self.char_ids, name="char_embeddings")
 
                 # put the time dimension on axis=1
-                s = tf.shape(char_embeddings)
+                s = tf.shape(input=char_embeddings)
                 char_embeddings = tf.reshape(char_embeddings,
                         shape=[s[0]*s[1], s[-2], self.config.dim_char])
                 word_lengths = tf.reshape(self.word_lengths, shape=[s[0]*s[1]])
@@ -128,16 +132,14 @@ class SRLModel(BaseModel):
                 if self.config.char_use_mlstm:
                     initial_hidden_states, initial_cell_states=self.mlstm_cell("char_mlstm", self.config.hidden_size_char,
                      word_lengths, char_embeddings, tf.identity(char_embeddings), 3)
-                    initial_hidden_states=tf.reduce_sum(initial_hidden_states, axis=1)
+                    initial_hidden_states=tf.reduce_sum(input_tensor=initial_hidden_states, axis=1)
                     output = tf.reshape(initial_hidden_states,
                             shape=[s[0], s[1], self.config.hidden_size_char])
                 else:
                     # bi lstm on chars
-                    cell_fw = tf.contrib.rnn.LSTMCell(self.config.hidden_size_char,
-                            state_is_tuple=True)
-                    cell_bw = tf.contrib.rnn.LSTMCell(self.config.hidden_size_char,
-                            state_is_tuple=True)
-                    _output = tf.nn.bidirectional_dynamic_rnn(
+                    cell_fw = tf.keras.layers.LSTMCell(self.config.hidden_size_char)
+                    cell_bw = tf.keras.layers.LSTMCell(self.config.hidden_size_char)
+                    _output = tf.compat.v1.nn.bidirectional_dynamic_rnn(
                             cell_fw, cell_bw, char_embeddings,
                             sequence_length=word_lengths, dtype=tf.float32)
                     
@@ -150,26 +152,26 @@ class SRLModel(BaseModel):
                             shape=[s[0], s[1], 2*self.config.hidden_size_char])
                 word_embeddings = tf.concat([word_embeddings, output], axis=-1)
 
-        self.word_embeddings =  tf.nn.dropout(word_embeddings, self.dropout)
+        self.word_embeddings =  tf.nn.dropout(word_embeddings, 1 - (self.dropout))
 
     def lstm_layer(self):
-        with tf.variable_scope("bi-lstm"):
-            cell_fw = tf.nn.rnn_cell.LSTMCell(self.config.hidden_size_lstm)
-            cell_bw = tf.nn.rnn_cell.LSTMCell(self.config.hidden_size_lstm)
-            (output_fw, output_bw), _ = tf.nn.bidirectional_dynamic_rnn(
+        with tf.compat.v1.variable_scope("bi-lstm"):
+            cell_fw = tf.compat.v1.nn.rnn_cell.LSTMCell(self.config.hidden_size_lstm)
+            cell_bw = tf.compat.v1.nn.rnn_cell.LSTMCell(self.config.hidden_size_lstm)
+            (output_fw, output_bw), _ = tf.compat.v1.nn.bidirectional_dynamic_rnn(
                     cell_fw, cell_bw, self.word_embeddings,
                     sequence_length=self.sequence_lengths, dtype=tf.float32)
             output = tf.concat([output_fw, output_bw], axis=-1)
-            output = tf.nn.dropout(output, self.dropout)
+            output = tf.nn.dropout(output, 1 - (self.dropout))
 
-        with tf.variable_scope("proj"):
-            W = tf.get_variable("W", dtype=tf.float32,
+        with tf.compat.v1.variable_scope("proj"):
+            W = tf.compat.v1.get_variable("W", dtype=tf.float32,
                     shape=[2*self.config.hidden_size_lstm, self.config.ntags])
 
-            b = tf.get_variable("b", shape=[self.config.ntags],
-                    dtype=tf.float32, initializer=tf.zeros_initializer())
+            b = tf.compat.v1.get_variable("b", shape=[self.config.ntags],
+                    dtype=tf.float32, initializer=tf.compat.v1.zeros_initializer())
 
-            nsteps = tf.shape(output)[1]
+            nsteps = tf.shape(input=output)[1]
             output = tf.reshape(output, [-1, 2*self.config.hidden_size_lstm])
             pred = tf.matmul(output, W) + b
             self.logits = tf.reshape(pred, [-1, nsteps, self.config.ntags])
@@ -202,86 +204,86 @@ class SRLModel(BaseModel):
         return combined_state
 
     def mlstm_cell(self, name_scope_name, hidden_size, lengths, initial_hidden_states, initial_cell_states, num_layers):
-        with tf.name_scope(name_scope_name):
+        with tf.compat.v1.name_scope(name_scope_name):
             #Word parameters 
             #forget gate for left 
-            with tf.name_scope("f1_gate"):
+            with tf.compat.v1.name_scope("f1_gate"):
                 #current
-                Wxf1 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
+                Wxf1 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
                 #left right
-                Whf1 = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
+                Whf1 = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
                 #initial state
-                Wif1 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
+                Wif1 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
                 #dummy node
-                Wdf1 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
+                Wdf1 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
             #forget gate for right 
-            with tf.name_scope("f2_gate"):
-                Wxf2 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
-                Whf2 = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
-                Wif2 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
-                Wdf2 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
+            with tf.compat.v1.name_scope("f2_gate"):
+                Wxf2 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
+                Whf2 = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
+                Wif2 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
+                Wdf2 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
             #forget gate for inital states     
-            with tf.name_scope("f3_gate"):
-                Wxf3 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
-                Whf3 = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
-                Wif3 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
-                Wdf3 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
+            with tf.compat.v1.name_scope("f3_gate"):
+                Wxf3 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
+                Whf3 = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
+                Wif3 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
+                Wdf3 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
             #forget gate for dummy states     
-            with tf.name_scope("f4_gate"):
-                Wxf4 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
-                Whf4 = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
-                Wif4 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
-                Wdf4 = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
+            with tf.compat.v1.name_scope("f4_gate"):
+                Wxf4 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
+                Whf4 = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
+                Wif4 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wif")
+                Wdf4 = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdf")
             #input gate for current state     
-            with tf.name_scope("i_gate"):
-                Wxi = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxi")
-                Whi = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whi")
-                Wii = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wii")
-                Wdi = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdi")
+            with tf.compat.v1.name_scope("i_gate"):
+                Wxi = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxi")
+                Whi = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whi")
+                Wii = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wii")
+                Wdi = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdi")
             #input gate for output gate
-            with tf.name_scope("o_gate"):
-                Wxo = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
-                Who = tf.Variable(tf.random_normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
-                Wio = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wio")
-                Wdo = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdo")
+            with tf.compat.v1.name_scope("o_gate"):
+                Wxo = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
+                Who = tf.Variable(tf.random.normal([2*hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
+                Wio = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wio")
+                Wdo = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wdo")
             #bias for the gates    
-            with tf.name_scope("biases"):
-                bi = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bi")
-                bo = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
-                bf1 = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf1")
-                bf2 = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf2")
-                bf3 = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf3")
-                bf4 = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf4")
+            with tf.compat.v1.name_scope("biases"):
+                bi = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bi")
+                bo = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
+                bf1 = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf1")
+                bf2 = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf2")
+                bf3 = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf3")
+                bf4 = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bf4")
 
             #dummy node gated attention parameters
             #input gate for dummy state
-            with tf.name_scope("gated_d_gate"):
-                gated_Wxd = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
-                gated_Whd = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
+            with tf.compat.v1.name_scope("gated_d_gate"):
+                gated_Wxd = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxf")
+                gated_Whd = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Whf")
             #output gate
-            with tf.name_scope("gated_o_gate"):
-                gated_Wxo = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
-                gated_Who = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
+            with tf.compat.v1.name_scope("gated_o_gate"):
+                gated_Wxo = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
+                gated_Who = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
             #forget gate for states of word
-            with tf.name_scope("gated_f_gate"):
-                gated_Wxf = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
-                gated_Whf = tf.Variable(tf.random_normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
+            with tf.compat.v1.name_scope("gated_f_gate"):
+                gated_Wxf = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Wxo")
+                gated_Whf = tf.Variable(tf.random.normal([hidden_size, hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="Who")
             #biases
-            with tf.name_scope("gated_biases"):
-                gated_bd = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bi")
-                gated_bo = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
-                gated_bf = tf.Variable(tf.random_normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
+            with tf.compat.v1.name_scope("gated_biases"):
+                gated_bd = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bi")
+                gated_bo = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
+                gated_bf = tf.Variable(tf.random.normal([hidden_size], mean=0.0, stddev=0.1, dtype=tf.float32), dtype=tf.float32, name="bo")
 
         #filters for attention        
         mask_softmax_score=tf.cast(tf.sequence_mask(lengths), tf.float32)*1e25-1e25
-        mask_softmax_score_expanded=tf.expand_dims(mask_softmax_score, dim=2)               
+        mask_softmax_score_expanded=tf.expand_dims(mask_softmax_score, axis=2)               
         #filter invalid steps
         sequence_mask=tf.expand_dims(tf.cast(tf.sequence_mask(lengths), tf.float32),axis=2)
         #filter embedding states
         initial_hidden_states=initial_hidden_states*sequence_mask
         initial_cell_states=initial_cell_states*sequence_mask
         #record shape of the batch
-        shape=tf.shape(initial_hidden_states)
+        shape=tf.shape(input=initial_hidden_states)
         
         #initial embedding states
         embedding_hidden_state=tf.reshape(initial_hidden_states, [-1, hidden_size])      
@@ -289,20 +291,20 @@ class SRLModel(BaseModel):
 
         #randomly initialize the states
         if self.config.random_initialize:
-            initial_hidden_states=tf.random_uniform(shape, minval=-0.05, maxval=0.05, dtype=tf.float32, seed=None, name=None)
-            initial_cell_states=tf.random_uniform(shape, minval=-0.05, maxval=0.05, dtype=tf.float32, seed=None, name=None)
+            initial_hidden_states=tf.random.uniform(shape, minval=-0.05, maxval=0.05, dtype=tf.float32, seed=None, name=None)
+            initial_cell_states=tf.random.uniform(shape, minval=-0.05, maxval=0.05, dtype=tf.float32, seed=None, name=None)
             #filter it
             initial_hidden_states=initial_hidden_states*sequence_mask
             initial_cell_states=initial_cell_states*sequence_mask
 
         #inital dummy node states
-        dummynode_hidden_states=tf.reduce_mean(initial_hidden_states, axis=1)
-        dummynode_cell_states=tf.reduce_mean(initial_cell_states, axis=1)
+        dummynode_hidden_states=tf.reduce_mean(input_tensor=initial_hidden_states, axis=1)
+        dummynode_cell_states=tf.reduce_mean(input_tensor=initial_cell_states, axis=1)
 
         for i in range(num_layers):
             #update dummy node states
             #average states
-            combined_word_hidden_state=tf.reduce_mean(initial_hidden_states, axis=1)
+            combined_word_hidden_state=tf.reduce_mean(input_tensor=initial_hidden_states, axis=1)
             reshaped_hidden_output=tf.reshape(initial_hidden_states, [-1, hidden_size])
             #copy dummy states for computing forget gate
             transformed_dummynode_hidden_states=tf.reshape(tf.tile(tf.expand_dims(dummynode_hidden_states, axis=1), [1, shape[1],1]), [-1, hidden_size])
@@ -321,12 +323,12 @@ class SRLModel(BaseModel):
 
             #softmax on each hidden dimension 
             reshaped_gated_f_t=tf.reshape(gated_f_t, [shape[0], shape[1], hidden_size])+ mask_softmax_score_expanded
-            gated_softmax_scores=tf.nn.softmax(tf.concat([reshaped_gated_f_t, tf.expand_dims(gated_d_t, dim=1)], axis=1), dim=1)
+            gated_softmax_scores=tf.nn.softmax(tf.concat([reshaped_gated_f_t, tf.expand_dims(gated_d_t, axis=1)], axis=1), axis=1)
             #split the softmax scores
             new_reshaped_gated_f_t=gated_softmax_scores[:,:shape[1],:]
             new_gated_d_t=gated_softmax_scores[:,shape[1]:,:]
             #new dummy states
-            dummy_c_t=tf.reduce_sum(new_reshaped_gated_f_t * initial_cell_states, axis=1) + tf.squeeze(new_gated_d_t, axis=1)*dummynode_cell_states
+            dummy_c_t=tf.reduce_sum(input_tensor=new_reshaped_gated_f_t * initial_cell_states, axis=1) + tf.squeeze(new_gated_d_t, axis=1)*dummynode_cell_states
             dummy_h_t=gated_o_t * tf.nn.tanh(dummy_c_t)
 
             #update word node states
@@ -386,7 +388,7 @@ class SRLModel(BaseModel):
 
 
             five_gates=tf.concat([f1_t, f2_t, f3_t, f4_t,i_t], axis=1)
-            five_gates=tf.nn.softmax(five_gates, dim=1)
+            five_gates=tf.nn.softmax(five_gates, axis=1)
             f1_t,f2_t,f3_t, f4_t,i_t= tf.split(five_gates, num_or_size_splits=5, axis=1)
             
             f1_t, f2_t, f3_t, f4_t, i_t=tf.squeeze(f1_t, axis=1), tf.squeeze(f2_t, axis=1),tf.squeeze(f3_t, axis=1), tf.squeeze(f4_t, axis=1),tf.squeeze(i_t, axis=1)
@@ -404,8 +406,8 @@ class SRLModel(BaseModel):
             dummynode_hidden_states=dummy_h_t
             dummynode_cell_states=dummy_c_t
 
-        initial_hidden_states = tf.nn.dropout(initial_hidden_states,self.dropout)
-        initial_cell_states = tf.nn.dropout(initial_cell_states, self.dropout)
+        initial_hidden_states = tf.nn.dropout(initial_hidden_states,1 - (self.dropout))
+        initial_cell_states = tf.nn.dropout(initial_cell_states, 1 - (self.dropout))
 
         return initial_hidden_states, initial_cell_states
 
@@ -416,14 +418,14 @@ class SRLModel(BaseModel):
 
         #SRL label predictions
         output=initial_hidden_states
-        with tf.variable_scope("proj"):
-            W = tf.get_variable("W", dtype=tf.float32,
+        with tf.compat.v1.variable_scope("proj"):
+            W = tf.compat.v1.get_variable("W", dtype=tf.float32,
                     shape=[self.config.hidden_size_sum, self.config.ntags])
 
-            b = tf.get_variable("b", shape=[self.config.ntags],
-                    dtype=tf.float32, initializer=tf.zeros_initializer())
+            b = tf.compat.v1.get_variable("b", shape=[self.config.ntags],
+                    dtype=tf.float32, initializer=tf.compat.v1.zeros_initializer())
 
-            nsteps = tf.shape(output)[1]
+            nsteps = tf.shape(input=output)[1]
             output = tf.reshape(output, [-1, self.config.hidden_size_sum])
             pred = tf.matmul(output, W) + b
             self.logits = tf.reshape(pred, [-1, nsteps, self.config.ntags])
@@ -448,25 +450,25 @@ class SRLModel(BaseModel):
         outside the graph.
         """
         if not self.config.use_crf:
-            self.labels_pred = tf.cast(tf.argmax(self.logits, axis=-1),
+            self.labels_pred = tf.cast(tf.argmax(input=self.logits, axis=-1),
                     tf.int32)
 
     def add_loss_op(self):
         """Defines the loss"""
         if self.config.use_crf:
-            log_likelihood, trans_params = tf.contrib.crf.crf_log_likelihood(
+            log_likelihood, trans_params = tfa.text.crf_log_likelihood(
                     self.logits, self.labels, self.sequence_lengths)
             self.trans_params = trans_params # need to evaluate it for decoding
-            self.loss = tf.reduce_mean(-log_likelihood)
+            self.loss = tf.reduce_mean(input_tensor=-log_likelihood)
         else:
             losses = tf.nn.sparse_softmax_cross_entropy_with_logits(
                     logits=self.logits, labels=self.labels)
             mask = tf.sequence_mask(self.sequence_lengths)
-            losses = tf.boolean_mask(losses, mask)
-            self.loss = tf.reduce_mean(losses)
+            losses = tf.boolean_mask(tensor=losses, mask=mask)
+            self.loss = tf.reduce_mean(input_tensor=losses)
 
         # for tensorboard
-        tf.summary.scalar("loss", self.loss)
+        tf.compat.v1.summary.scalar("loss", self.loss)
 
     def build(self):
         # SRL specific functions
@@ -499,7 +501,7 @@ class SRLModel(BaseModel):
             # iterate over the sentences because no batching in vitervi_decode
             for logit, sequence_length in zip(logits, sequence_lengths):
                 logit = logit[:sequence_length] # keep only the valid steps
-                viterbi_seq, viterbi_score = tf.contrib.crf.viterbi_decode(
+                viterbi_seq, viterbi_score = tfa.text.viterbi_decode(
                         logit, trans_params)
                 viterbi_sequences += [viterbi_seq]
 

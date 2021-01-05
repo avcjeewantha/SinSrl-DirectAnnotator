@@ -30,42 +30,38 @@ def model_build_train_eval(config):
                         config.processing_tag, config.max_iter, config.task)
 
     # train model
-    # if os.path.isfile(config.dir_model_root + 'modelResults.json') and os.access(
-    #         config.dir_model_root + 'modelsResults.json',
-    #         os.R_OK):
+    if os.path.isfile(config.dir_model_root + 'modelResults.json') and os.access(
+            config.dir_model_root + 'modelsResults.json',
+            os.R_OK):
 
-    params = model.train(train, dev, test, 0)
-    results = model.evaluate(test)
-    finalResults.append(results)
-    allParams.append(params)
+        params = model.train(train, dev, test, 0)
+        results = model.evaluate(test)
+        finalResults.append(results)
+        allParams.append(params)
 
-    with open(config.dir_model_root + 'modelResults.json') as modelResults:
-        allModelStats = json.load(modelResults)
+        with open(config.dir_model_root + 'modelResults.json') as modelResults:
+            allModelStats = json.load(modelResults)
 
-        allModelStats["finalResults"] = finalResults  # save model accuracy and parameter states for retrain
-        allModelStats["allParams"] = allParams
-    modelResults.close()
+            allModelStats["finalResults"] = finalResults  # save model accuracy and parameter states for retrain
+            allModelStats["allParams"] = allParams
+        modelResults.close()
 
-    with open(config.dir_model_root + 'modelResults.json', 'w') as modelResults:
-        json.dump(allModelStats, modelResults)  # write model stats into file
-        model.close_session()
+        with open(config.dir_model_root + 'modelResults.json', 'w') as modelResults:
+            json.dump(allModelStats, modelResults)  # write model stats into file
+            model.close_session()
 
-    modelResults.close()
-    # else:
-    #     with open(config.dir_model_root + 'modelResults.json', 'w') as json_file:
-    #         json.dump({"finalResults": [], "allParams": []}, json_file)  # write model stats into file
-    #     json_file.close()
-    #     params = model.train(train, dev, test, 0)
-    #     results = model.evaluate(test)
-    #     finalResults.append(results)
-    #     allParams.append(params)
-    #
-    #     with open(config.dir_model_root + 'modelResults.json', 'w') as json_file:
-    #         model_stats = {"finalResults": finalResults, "allParams": allParams}
-    #         json.dump(model_stats, json_file)  # write model stats into file
-    #
-    #         model.close_session()
-    #     json_file.close()
+        modelResults.close()
+    else:
+        params = model.train(train, dev, test, 0)
+        results = model.evaluate(test)
+        finalResults.append(results)
+        allParams.append(params)
+        with open(config.dir_model_root + 'modelResults.json', 'w') as json_file:
+            model_stats = {"finalResults": finalResults, "allParams": allParams}
+            json.dump(model_stats, json_file)  # write model stats into file
+
+            model.close_session()
+        json_file.close()
 
 
 # For the re training process
@@ -108,7 +104,7 @@ def model_build_retrain_eval(config, best_score):
 
 def processParamsForRetrain(bestParams, params):
     """process params with updated values since the model is already half run"""
-    paramCombinations = []  # all parameter combinations
+    paramCombinations = [] # all parameter combinations
     for layer in params["no of layers"]:
         for step in params["no of steps"]:
             for train_embeddings in params["train_embeddings"]:
@@ -122,9 +118,8 @@ def processParamsForRetrain(bestParams, params):
                                             [layer, step, train_embeddings, nepochs, dropout, batch_size, lr, lr_decay,
                                              model_type])
 
-    bestParamsCombination = list(bestParams.values())[:-1]  # last trained best parameter combination
-    paramCombinationsToIterate = paramCombinations[
-                                 paramCombinations.index(bestParamsCombination):]  # parameter combinations more to run
+    bestParamsCombination = list(bestParams.values())[:-1] # last trained best parameter combination
+    paramCombinationsToIterate = paramCombinations[paramCombinations.index(bestParamsCombination):] # parameter combinations more to run
 
     return paramCombinationsToIterate
 
@@ -148,13 +143,15 @@ def retrain_loop(config, params):
         config.model_type = paramset[8]
 
         model_name = paramset[8] + "_lr" + str(paramset[6]) + "_batch" + str(
-            paramset[5]) + "_layer" + str(paramset[0]) + "/"
+                                            paramset[5]) + "_layer" + str(paramset[0]) + "/"
         config.dir_model = config.dir_model_root + model_name
+
 
         if newParams.index(paramset) != 0:
             model_build_train_eval(config)
         else:
             model_build_retrain_eval(config, bestParams["best_score"])
+
 
 
 def train_loop(config, params):
@@ -207,12 +204,13 @@ def main():
         params = json.load(json_file)
     json_file.close()
 
+
     if task == "predId":
         if objective == "train":
 
             # Remove previous results
-            dirpath = Path('results/test/predIdData')
-            if dirpath.exists() and dirpath.is_dir():
+            dirpath = Path('results/')
+            if  dirpath.exists() and dirpath.is_dir():
                 shutil.rmtree(dirpath)
 
             build_data.main(task)
@@ -235,8 +233,8 @@ def main():
     elif task == "srlId":
         if objective == "train":
             # Remove previous results
-            dirpath = Path('results/test/predIdData')
-            if dirpath.exists() and dirpath.is_dir():
+            dirpath = Path('results/')
+            if  dirpath.exists() and dirpath.is_dir():
                 shutil.rmtree(dirpath)
 
             build_data.main(task)

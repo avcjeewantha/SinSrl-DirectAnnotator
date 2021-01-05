@@ -2,6 +2,8 @@ import os
 import tensorflow as tf
 import json
 
+tf.compat.v1.disable_eager_execution()
+tf.compat.v1.disable_resource_variables()
 
 class BaseModel(object):
     """Generic class for general methods that are not specific to SRL"""
@@ -21,8 +23,8 @@ class BaseModel(object):
 
     def reinitialize_weights(self, scope_name):
         """Reinitializes the weights of a given layer"""
-        variables = tf.contrib.framework.get_variables(scope_name)
-        init = tf.variables_initializer(variables)
+        variables = tf.compat.v1.get_variables(scope_name)
+        init = tf.compat.v1.variables_initializer(variables)
         self.sess.run(init)
 
     def add_train_op(self, lr_method, lr, loss, clip=-1):
@@ -35,15 +37,15 @@ class BaseModel(object):
 
         """
         _lr_m = lr_method.lower()  # lower to make sure
-        with tf.variable_scope("train_step"):
+        with tf.compat.v1.variable_scope("train_step"):
             if _lr_m == 'adam':  # sgd method
-                optimizer = tf.train.AdamOptimizer(lr)
+                optimizer = tf.compat.v1.train.AdamOptimizer(lr)
             elif _lr_m == 'adagrad':
-                optimizer = tf.train.AdagradOptimizer(lr)
+                optimizer = tf.compat.v1.train.AdagradOptimizer(lr)
             elif _lr_m == 'sgd':
-                optimizer = tf.train.GradientDescentOptimizer(lr)
+                optimizer = tf.compat.v1.train.GradientDescentOptimizer(lr)
             elif _lr_m == 'rmsprop':
-                optimizer = tf.train.RMSPropOptimizer(lr)
+                optimizer = tf.compat.v1.train.RMSPropOptimizer(lr)
             else:
                 raise NotImplementedError("Unknown method {}".format(_lr_m))
 
@@ -57,9 +59,9 @@ class BaseModel(object):
     def initialize_session(self):
         """Defines self.sess and initialize the variables"""
         self.logger.info("Initializing tf session")
-        self.sess = tf.Session()
-        self.sess.run(tf.global_variables_initializer())
-        self.saver = tf.train.Saver()
+        self.sess = tf.compat.v1.Session()
+        self.sess.run(tf.compat.v1.global_variables_initializer())
+        self.saver = tf.compat.v1.train.Saver()
 
     def restore_session(self, dir_model):
         """Reload weights into session
@@ -86,15 +88,15 @@ class BaseModel(object):
     def close_session(self):
         """Closes the session"""
         self.sess.close()
-        tf.reset_default_graph()
+        tf.compat.v1.reset_default_graph()
 
     def add_summary(self):
         """Defines variables for Tensorboard
         Args:
             dir_output: (string) where the results are written
         """
-        self.merged = tf.summary.merge_all()
-        self.file_writer = tf.summary.FileWriter(self.config.dir_output,
+        self.merged = tf.compat.v1.summary.merge_all()
+        self.file_writer = tf.compat.v1.summary.FileWriter(self.config.dir_output,
                                                  self.sess.graph)
 
     def train(self, train, dev, test, best_score_got):

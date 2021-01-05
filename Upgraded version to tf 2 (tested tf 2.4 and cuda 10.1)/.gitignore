@@ -1,0 +1,12 @@
+*sh
+*pyc
+/data/predIdData/chars.txt
+/data/predIdData/fasttext_300_nsw.trimmed.npz
+/data/predIdData/tags.txt
+/data/predIdData/words.txt
+/data/fasttext_300_nsw.w2v
+/data/fasttext_300_nsw.w2v.trainables.vectors_ngrams_lockf.npy
+/data/fasttext_300_nsw.w2v.wv.vectors_ngrams.npy
+/results
+*.DS_Store
+/.idea
