@@ -39,6 +39,7 @@ def displayOutput(words_raw, seq):
     for i in range(len(seq)):
         if ('-' in words_raw[i] and '.0' in words_raw[i]):
             seq[i] = words_raw[i].split('-', 1)[-1]
+    seq = [x if x != "pred" else "O" for x in seq]
     return seq
 
 
