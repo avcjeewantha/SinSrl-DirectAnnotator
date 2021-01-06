@@ -3,9 +3,10 @@
 1. First satisfy the following requirements
     
     `python 3.6`  
-    `tensorflow 1.4.0`  
+    `tensorflow 2.2`    
+    `tensorflow-addon`  
     `gensim 3.4.0`  
-    
+    ```Tested with cuda 10.1```
 2. Training data should be in following directories
 
     The predicate identifier - `/data/predIdData`  
