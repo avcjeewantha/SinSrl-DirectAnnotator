@@ -46,7 +46,7 @@ def main():
     predId_model_name = ''
     srlId_model_name = ''
     predId_model_name = str(sys.argv[1])  # The name of the model to use for prediction
-    srlId_model_name = str(sys.argv[1])
+    srlId_model_name = str(sys.argv[2])
 
     if predId_model_name != '' and srlId_model_name != '':
         # create instance of config
