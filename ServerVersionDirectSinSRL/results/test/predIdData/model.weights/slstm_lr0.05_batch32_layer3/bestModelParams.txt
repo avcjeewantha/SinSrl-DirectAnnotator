@@ -1,0 +1,1 @@
+{"no of layers": 3, "no of steps": 3, "train_embeddings": true, "no of nepochs": 1000, "dropout": 0.5, "batch_size": 32, "learning rate": 0.05, "lr_decay": 0.97, "model_type": "slstm", "best_score": 67.67613565260918}

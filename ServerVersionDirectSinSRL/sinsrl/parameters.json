@@ -1,0 +1,11 @@
+{
+  "no of layers": [2,3,4],
+  "no of steps": [3],
+  "train_embeddings": [true],
+  "no of nepochs": [2],
+  "dropout": [0.5],
+  "batch_size": [2,32],
+  "learning rate": [0.05],
+  "lr_decay": [0.97],
+  "model_type": ["slstm"]
+}
