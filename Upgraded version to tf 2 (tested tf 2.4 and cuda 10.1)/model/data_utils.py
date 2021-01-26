@@ -72,8 +72,8 @@ class CoNLLDataset(object):
                     word, tag = ls[0], ls[-1]
                     if self.task == "srlId" and '.' in tag:
                         # word = 'පුකරෝථන-ක්‍රියාව'
-                        wordL = re.split('-I|-B', word)
-                        word = wordL[0]
+                        # wordL = re.split('-I|-B', word)
+                        # word = wordL[0]
                         tag = 'pred'
                     if self.processing_word is not None:
                         word = self.processing_word(word)
