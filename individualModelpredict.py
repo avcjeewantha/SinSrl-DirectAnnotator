@@ -40,7 +40,7 @@ def interactive_shell(model, task):
         input> මම ගෙදර යමි .""")
     elif task == "srlId":
         model.logger.info("""This is an interactive mode. To exit, enter 'exit'. You can enter a sentence like , 
-            input> මම ගෙදර යමි-B-go.02 .""")
+            input> මම ගෙදර යමි-go.02 .""")
     while True:
         try:
             # for python 2

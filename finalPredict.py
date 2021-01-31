@@ -4,24 +4,26 @@ from model.srl_model import SRLModel
 import tensorflow as tf
 import sys
 
-def findInsideTags(i, n, newTags, tags, seqList):  # (i, 4, ['O', 'O', 'B-go.02', 'O'], ['O', 'O', 'B-go.02', 'O'], [])
-    if (i == n - 1 or 'I-' not in tags[i + 1]):
-        seqList.append(newTags)
-    elif ('I-' in tags[i + 1]):
-        newTags[i + 1] = tags[i + 1]
-        findInsideTags(i + 1, n, newTags, tags, seqList)
+def predWiseTags(tags):  # ['O', 'O', 'go.02', 'O']
+    seqList = []
+    predicates = []
+    last = ''
+    for i in range(len(tags)):
+        if (tags[i]!='O') and (tags[i]!=last):
+            predicates.append(i)
+            last =tags[i]
+    for i in range(len(predicates)):
+        seq = ['O']*len(tags)
+        if i!=len(predicates)-1:
+            for j in range(predicates[i],predicates[i+1]):
+                seq[j]=tags[j]
+        else:
+            for j in range(predicates[i],len(tags)):
+                seq[j]=tags[j]
+        seqList.append(seq)
+    return seqList
 
-
-def predWiseTags(tokens, tags, seqList):  # (['මම', 'ගෙදර', 'යමි', '.'], ['O', 'O', 'B-go.02', 'O'], [])
-    n = len(tokens)
-    for i in range(n):
-        if ('B-' in tags[i]):
-            newTags = ['O' for i in range(n)]
-            newTags[i] = tags[i]
-            findInsideTags(i, n, newTags, tags, seqList)
-
-
-def makeInputToNext(words_raw, seq):  # (['මම', 'ගෙදර', 'යමි', '.'], ['O', 'O', 'B-go.02', 'O'])
+def makeInputToNext(words_raw, seq):  # (['මම', 'ගෙදර', 'යමි', '.'], ['O', 'O', 'go.02', 'O'])
     n = len(seq)
     newInput = []
     for i in range(n):
@@ -90,15 +92,14 @@ def main():
                 words_raw = words_raw[:-1] + [words_raw[-1][:-1]] + ['.']
             elif (words_raw[-1] != '.'):
                 words_raw.append('.')
-            preds = predIdModel.predict(words_raw)  # ['O', 'O', 'B-go.02', 'O']
-            seqList = []
-            predWiseTags(words_raw, preds, seqList)
+            preds = predIdModel.predict(words_raw)  # ['O', 'O', 'go.02', 'O']
+            seqList = predWiseTags(preds)
 
             # Predict SRL tags
-            for seq in seqList:  # [['O', 'O', 'B-go.02', 'O']]
-                inputToNextModel = makeInputToNext(words_raw, seq)  # ['මම', 'ගෙදර', 'යමි-B-go.02', '.']
-                finalPreds = srlIdModel.predict(inputToNextModel)  # ['B-ARG0', 'B-ARG1','pred' , 'O']
-                output = displayOutput(inputToNextModel, finalPreds)  # ['B-ARG0', 'B-ARG1','B-go.02' , 'O']
+            for seq in seqList:  # [['O', 'O', 'go.02', 'O']]
+                inputToNextModel = makeInputToNext(words_raw, seq)  # ['මම', 'ගෙදර', 'යමි-go.02', '.']
+                finalPreds = srlIdModel.predict(inputToNextModel)  # ['ARG0', 'ARG1','pred' , 'O']
+                output = displayOutput(inputToNextModel, finalPreds)  # ['ARG0', 'ARG1','go.02' , 'O']
                 print(output)
 
         # srl_sess.close()
