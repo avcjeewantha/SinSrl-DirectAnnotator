@@ -67,7 +67,7 @@ def interactive_shell(model, task):
 def main():
     global config
     task = str(sys.argv[1])
-    model_name = str(sys.argv[1])  # The name of the model to use for prediction
+    model_name = str(sys.argv[2])  # The name of the model to use for prediction
     if model_name:
         if task == "predId":
             # create instance of config
