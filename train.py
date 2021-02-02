@@ -14,7 +14,7 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 finalResults = []
 allParams = []
-
+model_dic_lsit= []
 
 def model_build_train_eval(config):
     # build model
@@ -33,8 +33,13 @@ def model_build_train_eval(config):
     # if os.path.isfile(config.dir_model_root + 'modelResults.json') and os.access(
     #         config.dir_model_root + 'modelsResults.json',
     #         os.R_OK):
-
-    params = model.train(train, dev, test, 0)
+    details = model.train(train, dev, test, 0)
+    params = details["params"]
+    model_dic = details["model_dic"]
+    model_dic_lsit.append(model_dic)
+    with open(config.dir_output+"model_details.json", 'w') as fout:
+        json.dump(model_dic_lsit, fout)
+    fout.close()
     results = model.evaluate(test)
     finalResults.append(results)
     allParams.append(params)
@@ -90,7 +95,7 @@ def model_build_retrain_eval(config, best_score):
         finalResults = allModelStats["finalResults"]  # replace model stats from saved file
         allParams = allModelStats["allParams"]
 
-        params = model.train(train, dev, test, best_score)
+        params = model.train(train, dev, test, best_score)["params"]
         results = model.evaluate(test)
         finalResults.append(results)  # append new stats into the list
         allParams.append(params)

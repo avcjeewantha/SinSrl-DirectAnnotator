@@ -466,7 +466,9 @@ class SRLModel(BaseModel):
             self.loss = tf.reduce_mean(losses)
 
         # for tensorboard
+        print("loss ", str(self.loss))
         tf.summary.scalar("loss", self.loss)
+
 
     def build(self):
         # SRL specific functions
@@ -536,23 +538,27 @@ class SRLModel(BaseModel):
             prog.update(i + 1, [("train loss", train_loss)])
 
             # tensorboard
+
             if i % 10 == 0:
                 self.file_writer.add_summary(summary, epoch*nbatches + i)
-
+            #     self.file_writer.add_summary(summary, epoch*nbatches + i)
         metrics = self.run_evaluate(dev)
         msg = " dev - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics.items()])
         self.logger.info(msg)
-
         start_time = time.time()            
         metrics2 = self.run_evaluate(test)
         msg2 = " test - ".join(["{} {:04.2f}".format(k, v)
                 for k, v in metrics2.items()])
         self.logger.info(msg2)
+        self.logger.info(metrics2)
+
+        print ("epoch " +str(epoch))
+
         print("Len test "+str(len(test)))
         print("Decoding Time = %.3f seconds\n" % (time.time()-start_time))
             
-        return metrics["f1"]
+        return {"test-acc": metrics2["acc"], "dev-f1":metrics["f1"]}
 
     def run_evaluate(self, test):
         """Evaluates performance on test set
@@ -561,7 +567,7 @@ class SRLModel(BaseModel):
         Returns:
             metrics: (dict) metrics["acc"] = 98.4, ...
         """
-        accs = []
+        self.accs = []
         correct_preds, total_correct, total_preds = 0., 0., 0.
         for words, labels in minibatches(test, self.config.batch_size):
             labels_pred, sequence_lengths = self.predict_batch(words)
@@ -570,7 +576,7 @@ class SRLModel(BaseModel):
                                              sequence_lengths):
                 lab      = lab[:length]
                 lab_pred = lab_pred[:length]
-                accs    += [a==b for (a, b) in zip(lab, lab_pred)]
+                self.accs += [a==b for (a, b) in zip(lab, lab_pred)]
 
                 lab_chunks      = set(get_chunks(lab, self.config.vocab_tags))
                 lab_pred_chunks = set(get_chunks(lab_pred,
@@ -589,8 +595,12 @@ class SRLModel(BaseModel):
         p   = correct_preds / total_preds if correct_preds > 0 else 0
         r   = correct_preds / total_correct if correct_preds > 0 else 0
         f1  = 2 * p * r / (p + r) if correct_preds > 0 else 0
-        acc = np.mean(accs)
-        return {"acc": 100*acc, "f1": 100*f1}
+        self.acc = np.mean(self.accs)
+        print("accuracy " + str(self.acc))
+        # for tensorboard
+
+        self.accuracy = tf.summary.scalar("acc", self.acc)
+        return {"acc": 100*self.acc, "f1": 100*f1}
 
     def predict(self, words_raw):
         """Returns list of tags

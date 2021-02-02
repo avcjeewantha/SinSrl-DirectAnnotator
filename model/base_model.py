@@ -2,8 +2,8 @@ import os
 import tensorflow as tf
 import json
 
-
 class BaseModel(object):
+
     """Generic class for general methods that are not specific to SRL"""
 
     def __init__(self, config):
@@ -138,12 +138,18 @@ class BaseModel(object):
                        "lr_decay {:}".format(self.config.lr_decay),
                        "model_type {:}".format(self.config.model_type)])
 
+        epoch_list = []
+        accuracy_list =[]
         for epoch in range(self.config.nepochs):
             self.logger.info("Epoch {:} out of {:} of model no. - {:}".format(epoch + 1,
                                                                               self.config.nepochs, len(params)))
             self.logger.info(param_dic)
 
-            score = self.run_epoch(train, dev, epoch, test)
+            run_epoch_output =self.run_epoch(train, dev, epoch, test)
+            epoch_list.append(epoch+1)
+            accuracy_list.append(run_epoch_output["test-acc"])
+            score = run_epoch_output["dev-f1"]
+
             self.config.lr *= self.config.lr_decay  # decay learning rate
 
             # early stopping and saving best parameters
@@ -164,7 +170,11 @@ class BaseModel(object):
                     self.logger.info("- early stopping {} epochs without " \
                                      "improvement".format(nepoch_no_imprv))
                     break
-        return params
+        model_detail = " , ".join([" : ".join(str(element) for element in item) for item in param_dic.items() if(item[0] !="best_score")])
+        model_dic ={"model_detail" : model_detail ,"epoch_number":epoch_list,"model_acc" : accuracy_list}
+
+
+        return {"model_dic": model_dic, "params":params}
 
     def evaluate(self, test):
         """Evaluate model on test set
