@@ -2,34 +2,34 @@
 
 මම O
 ඇඟවීමක් O
-දෙමි B-give.01
+දෙමි give.01
 . O
 
 අපි O
 කෙසේ O
 එය O
-ආරක්ෂා B-protect.01
-කළ I-protect.01
+ආරක්ෂා protect.01
+කළ protect.01
 යුතු O
 . O
 
 කෙසේ O
 තවත් O
-අවශ්‍ය B-require.01
-වේ I-require.01
+අවශ්‍ය require.01
+වේ require.01
 . O
 
 අයර්ලන්තය O
 ජාතික O
 ජනමත O
 එය O
-ප්‍රතික්ෂේප B-reject.01
-කළේය I-reject.01
+ප්‍රතික්ෂේප reject.01
+කළේය reject.01
 . O
 
 එය O
-තේරුම් B-understand.01
-ගැනීමට I-understand.01
+තේරුම් understand.01
+ගැනීමට understand.01
 එතරම් O
 අපහසු O
 . O
@@ -38,36 +38,36 @@
 අස්ථාවරත්වය O
 අධිෂ්ඨානශීලී O
 ක්‍රියාමාර්ගයක් O
-ඉල්ලා B-call.03
-සිටී I-call.03
+ඉල්ලා call.03
+සිටී call.03
 . O
 
 ඡන්ද O
 බ්‍රහස්පතින්දා O
-සිදු B-take.14
-වෙයි I-take.14
+සිදු take.14
+වෙයි take.14
 . O
 
 ග්‍රීන් O
 පේපර් O
 ප්‍රසිද්ධ O
 විවාදයකට O
-මඟ B-lead.03
-පෙන්වීය I-lead.03
+මඟ lead.03
+පෙන්වීය lead.03
 . O
 
 යම් O
 උදාසීනතාවකින් O
 එය O
-සලකුණු B-mark.01
-කර I-mark.01
+සලකුණු mark.01
+කර mark.01
 ඇත O
 . O
 
 මෙය O
 බොහෝ O
-සිදු B-happen.01
-වී I-happen.01
+සිදු happen.01
+වී happen.01
 ඇත O
 . O
 
@@ -75,25 +75,25 @@
 දී O
 බොහෝ O
 බාධක O
-ඉවත් B-remove.01
-කරන I-remove.01
-ලදී I-remove.01
+ඉවත් remove.01
+කරන remove.01
+ලදී remove.01
 . O
 
 අප O
 නීතිමය O
 අවිනිශ්චිතතාවක් O
-ඇති B-create.01
+ඇති create.01
 ද O
-වැළකී B-avoid.01
-සිටිය I-avoid.01
+වැළකී avoid.01
+සිටිය avoid.01
 යුතුය O
 . O
 
 ඡන්දය O
 ළඟදී O
-සිදු B-take.14
-වනු I-take.14
+සිදු take.14
+වනු take.14
 ඇත O
 . O
 
@@ -103,12 +103,12 @@
 උත්සාහය O
 ගැන O
 බොහොමයක් O
-පවසයි B-say.01
+පවසයි say.01
 . O
 
 නව O
 අභියෝග O
-නගිමින් B-arise.02
+නගිමින් arise.02
 තිබෙයි O
 . O
 
@@ -116,16 +116,16 @@
 අවස්ථා O
 විශේෂ O
 ක්‍රියාමාර්ග O
-ඉල්ලා B-demand.01
-සිටී I-demand.01
+ඉල්ලා demand.01
+සිටී demand.01
 . O
 
 අපි O
 මෙම O
 සාර්ථකත්ව O
 පදනම O
-ආරක්ෂා B-safeguard.01
-කළ I-safeguard.01
+ආරක්ෂා safeguard.01
+කළ safeguard.01
 යුතු O
 . O
 
@@ -135,39 +135,39 @@
 සහ O
 ස්වාධීනත්වයට O
 ද O
-ගරු B-respect.01
-කරමු I-respect.01
+ගරු respect.01
+කරමු respect.01
 . O
 
 අදහස් O
 දෙකකින් O
-අවසන් B-finish.01
-කිරීමට I-finish.01
+අවසන් finish.01
+කිරීමට finish.01
 මම O
-කැමැත්තෙමි B-like.02
+කැමැත්තෙමි like.02
 . O
 
 අනෙක් O
 අප O
-එක්වීම B-join.01
+එක්වීම join.01
 අපි O
-අපේක්ෂා B-expect.01
-කරමු I-expect.01
+අපේක්ෂා expect.01
+කරමු expect.01
 . O
 
 යුරෝව O
 මහජනතාව O
 විසින් O
 මනාව O
-පිළිගනු B-receive.01
-ලබයි I-receive.01
+පිළිගනු receive.01
+ලබයි receive.01
 . O
 
 එය O
 ලෝකයේ O
 විශ්වාසය O
-දිනා B-gain.02
-ගෙන I-gain.02
+දිනා gain.02
+ගෙන gain.02
 ඇත O
 . O
 
@@ -176,22 +176,22 @@
 අදාළ O
 තීරණ O
 ඒකමතිකව O
-පිළිගනු B-welcome.01
-ලැබ I-welcome.01
-තිබේ I-welcome.01
+පිළිගනු welcome.01
+ලැබ welcome.01
+තිබේ welcome.01
 . O
 
 ස්ලොවැකියාව O
 අප O
-එක් B-join.01
-වී I-join.01
+එක් join.01
+වී join.01
 ඇත O
 . O
 
 ඔහු O
 අපට O
-ඒත්තු B-persuade.01
-ගැන්වුවේ I-persuade.01
+ඒත්තු persuade.01
+ගැන්වුවේ persuade.01
 නැත O
 . O
 
@@ -199,12 +199,12 @@
 ඉලක්කය O
 තරමක O
 විකාරයක් O
-පෙනෙයි B-seem.01
+පෙනෙයි seem.01
 . O
 
 එසේ O
-කිරීමට B-do.02
-ඉතිරිව I-do.02
+කිරීමට do.02
+ඉතිරිව do.02
 කුමක්ද O
 . O
 
@@ -212,93 +212,93 @@
 තරඟකාරිත්වය O
 කැබලි O
 වනසේ O
-වෙඩි B-shoot.02
-තැබෙයි I-shoot.02
+වෙඩි shoot.02
+තැබෙයි shoot.02
 . O
 
 වෙළඳපොළවල් O
 යුරෝවේ O
 මත O
-සමපේක්ෂණය B-speculate.01
-වෙමින් I-speculate.01
-පවතී I-speculate.01
+සමපේක්ෂණය speculate.01
+වෙමින් speculate.01
+පවතී speculate.01
 . O
 
 අතිරේක O
 උත්තේජනයක් O
-අවශ්‍ය B-need.01
-වෙයි I-need.01
+අවශ්‍ය need.01
+වෙයි need.01
 . O
 
 අපි O
 දක්ෂ O
 අධිකාරීන්ගෙන් O
-විමසමු B-consult.01
+විමසමු consult.01
 . O
 
 නිසැකවම O
 මම O
 මගේම O
 වාර්තාවට O
-සහාය B-support.01
-දැක්වූවෙමි I-support.01
+සහාය support.01
+දැක්වූවෙමි support.01
 . O
 
 අපි O
 යුරෝපීය O
 ආහාර O
 සුරක්ෂිතතාව O
-අඩපණ B-undermine.01
-කර I-undermine.01
-ඇත්තෙමු I-undermine.01
+අඩපණ undermine.01
+කර undermine.01
+ඇත්තෙමු undermine.01
 . O
 
 මම O
 මේ O
 විකාරය O
-දැන B-find.01
-ගනිමි I-find.01
+දැන find.01
+ගනිමි find.01
 . O
 
 එයින් O
-අදහස් B-mean.01
-කරන්නේ I-mean.01
+අදහස් mean.01
+කරන්නේ mean.01
 ගිවිසුම O
 ජනමත O
-ඉදිරිපත් B-put.01
-කිරීමයි I-put.01
+ඉදිරිපත් put.01
+කිරීමයි put.01
 . O
 
 අපි O
 දැන් O
 රැස්වීම O
-අත්හිටුවන්නෙමු B-suspend.01
+අත්හිටුවන්නෙමු suspend.01
 . O
 
 අපේ O
 ජාතිය O
-ලබාගත්තේ B-gain.02
+ලබාගත්තේ gain.02
 මොනවද O
 . O
 
 ඇත්ත O
-සිදු B-happen.01
-වන්නේ I-happen.01
+සිදු happen.01
+වන්නේ happen.01
 එයයි O
 . O
 
 වෙළඳපොළ O
 විසින්ම O
-නියාමනය B-regulate.01
-කරයි I-regulate.01
+නියාමනය regulate.01
+කරයි regulate.01
 . O
 
 අවාසනාවට O
 අපි O
 ප්‍රමාද O
-අවදි B-wake.01
-වී I-wake.01
-සිටිමු I-wake.01
+අවදි wake.01
+වී wake.01
+සිටිමු wake.01
 . O
 
 ගෝලීය O
@@ -306,45 +306,45 @@
 අර්බුදය O
 ලැට්වියාවට O
 ද O
-පහර B-hit.01
-දී I-hit.01
-තිබේ I-hit.01
+පහර hit.01
+දී hit.01
+තිබේ hit.01
 . O
 
 කෙසේ O
 බලශක්ති O
 වෙළඳපොල O
-පල්වෙමින් B-dwindle.01
-පවතී I-dwindle.01
+පල්වෙමින් dwindle.01
+පවතී dwindle.01
 . O
 
 අපි O
 අනාගතය O
-සොයා B-look.01
-බලමු I-look.01
+සොයා look.01
+බලමු look.01
 . O
 
 එය O
 එහි O
 වටිනාකම් O
 පද්ධතිය O
-ශක්තිමත් B-consolidate.01
-කරාවි I-consolidate.01
+ශක්තිමත් consolidate.01
+කරාවි consolidate.01
 . O
 
 ඒ O
 අයුරින් O
 අපගේ O
 කාර්යය O
-විනිශ්චය B-judge.01
-කරාවි I-judge.01
+විනිශ්චය judge.01
+කරාවි judge.01
 . O
 
 මමත් O
 මේ O
 ඡන්දයට O
-සහාය B-support.01
-දුන්නෙමි I-support.01
+සහාය support.01
+දුන්නෙමි support.01
 . O
 
 මම O
@@ -352,13 +352,13 @@
 වාර්තාවේ O
 අරමුණු O
 සමඟ O
-එකඟ B-agree.01
-වෙමි I-agree.01
+එකඟ agree.01
+වෙමි agree.01
 . O
 
 අප O
-ජීවත් B-live.01
-වන්නේ I-live.01
+ජීවත් live.01
+වන්නේ live.01
 නව O
 යුගයක O
 ය O
@@ -367,8 +367,8 @@
 ඒ O
 නිසයි O
 අපි O
-වැළකී B-abstain.01
-සිටියේ I-abstain.01
+වැළකී abstain.01
+සිටියේ abstain.01
 . O
 
 එබැවින් O
@@ -376,7 +376,7 @@
 මෙම O
 වාර්තාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 දුන්නෙමි O
 . O
 
@@ -384,20 +384,20 @@
 මේ O
 වාර්තාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 ඒ O
 නිසයි O
 අපි O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 මෙම O
 මානසිකත්වය O
-අර්ථ B-define.01
-දක්වන්නේ I-define.01
+අර්ථ define.01
+දක්වන්නේ define.01
 කෙසේද O
 . O
 
@@ -406,32 +406,32 @@
 මෙම O
 වාර්තාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 වෙනත් O
 රටවල් O
 ජනමත O
-සංවිධානය B-organize.01
-කිරීමට I-organize.01
+සංවිධානය organize.01
+කිරීමට organize.01
 පවා O
-එඩිතර B-dare.01
-වන්නේ I-dare.01
+එඩිතර dare.01
+වන්නේ dare.01
 නැත O
 . O
 
 කෙනෙකුට O
 පොදු O
 යහපතට O
-දායක B-contribute.01
-විය I-contribute.01
+දායක contribute.01
+විය contribute.01
 . O
 
 මම O
 මෙම O
 වාර්තාවට O
 පක්ෂව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එබැවින් O
@@ -439,14 +439,14 @@
 වහාම O
 විකල්ප O
 විසඳුම් O
-ඇතුළත් B-include.01
-කළ I-include.01
+ඇතුළත් include.01
+කළ include.01
 යුතුයි O
 . O
 
 කෘෂිකාර්මික O
 අස්වැන්න O
-අඩුවේවි B-go.01
+අඩුවේවි go.01
 . O
 
 එය O
@@ -454,7 +454,7 @@
 පනවන O
 අතර O
 ලිහිල් O
-නොමැත B-lack.01
+නොමැත lack.01
 . O
 
 මෙම O
@@ -464,7 +464,7 @@
 මෙම O
 යෝජනාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 අඩු O
@@ -474,23 +474,23 @@
 12 O
 සඳහා O
 විශේෂයෙන්ම O
-නිර්මාණය B-create.01
-කරන I-create.01
-ලදි I-create.01
+නිර්මාණය create.01
+කරන create.01
+ලදි create.01
 . O
 
 එය O
 2004 O
 දී O
-තීරණය B-decide.01
-විය I-decide.01
+තීරණය decide.01
+විය decide.01
 . O
 
 වීසා O
 ජෛවමිතිකයන්ට O
 එරෙහිව O
 අපි O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 අද O
@@ -498,28 +498,28 @@
 එක් O
 සුවිශේෂී O
 පියවරක් O
-තබමු B-take.01
+තබමු take.01
 . O
 
 එබැවින් O
 අද O
 පාර්ලිමේන්තුව O
 සමතුලිතතාවයක් O
-අත්කර B-achieve.01
-ගෙන I-achieve.01
+අත්කර achieve.01
+ගෙන achieve.01
 ඇත O
 . O
 
 මෙම O
 රැස්වීම O
-සැලසුම් B-schedule.01
-කර I-schedule.01
+සැලසුම් schedule.01
+කර schedule.01
 ඇත්තේ O
 එබැවිනි O
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 සාකච්ඡා O
 එතැනින් O
 යුතුයි O
@@ -529,13 +529,13 @@
 වෝල්ස්ට්‍රෝම් O
 සමාන O
 දෙයක් O
-පවසා B-say.01
+පවසා say.01
 ඇත O
 . O
 
 පෙර O
 කථිකයා O
-පැවසුවේ B-say.01
+පැවසුවේ say.01
 එය O
 නොහැකි O
 . O
@@ -544,47 +544,47 @@
 බලධාරීහු O
 ප්‍රජාතන්ත්‍රවාදී O
 තීරණ O
-ක්‍රියාත්මක B-implement.01
-කිරීම I-implement.01
+ක්‍රියාත්මක implement.01
+කිරීම implement.01
 සඳහා O
 නිලධාරීන් O
-පත් B-appoint.01
-කරති I-appoint.01
+පත් appoint.01
+කරති appoint.01
 . O
 
 මම O
 කපටෝ O
 වාර්තාවට O
-සහය B-support.01
+සහය support.01
 . O
 
 මම O
 වාර්තාවේ O
 බොහෝ O
 සමඟ O
-එකඟ B-agree.01
-වෙමි I-agree.01
+එකඟ agree.01
+වෙමි agree.01
 . O
 
 මුදල් O
-යන්නේ B-go.01
+යන්නේ go.01
 කොහේද O
 . O
 
 එය O
-ලැබෙන්නේ B-receive.01
+ලැබෙන්නේ receive.01
 කාටද O
 . O
 
 මම O
 මෙම O
 පියවර O
-සාදරයෙන් B-welcome.01
+සාදරයෙන් welcome.01
 . O
 
 අප O
 කළ O
-යුත්තේ B-need.01
+යුත්තේ need.01
 එයයි O
 . O
 
@@ -594,7 +594,7 @@
 සන්දර්භය O
 තුළ O
 ද O
-බැලිය B-view.02
+බැලිය view.02
 යුතුය O
 . O
 
@@ -603,15 +603,15 @@
 තත්ත්වය O
 සාධාරණ O
 මිලකට O
-අවශ්‍යයයි B-need.01
+අවශ්‍යයයි need.01
 . O
 
 දූෂණය O
-අවම B-reduce.01
-කිරීම I-reduce.01
+අවම reduce.01
+කිරීම reduce.01
 සඳහා O
 එයම O
-වේ B-go.01
+වේ go.01
 . O
 
 ස්වෝබොඩා O
@@ -619,8 +619,8 @@
 පෙර O
 විවාදයේදී O
 පැහැදිලිව O
-කථා B-speak.01
-කළේය I-speak.01
+කථා speak.01
+කළේය speak.01
 . O
 
 අපි O
@@ -628,29 +628,29 @@
 පාර O
 දිගේ O
 තවත් O
-යා B-go.02
-යුතුවෙමු I-go.02
+යා go.02
+යුතුවෙමු go.02
 . O
 
 අපට O
 ආරක්ෂක O
 කර්මාන්ත O
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 එබැවිනි O
 . O
 
 මෙය O
 විශේෂයෙන් O
 කොන්ත්‍රාත්තු O
-සම්බන්ධ B-concern.02
+සම්බන්ධ concern.02
 වගන්තියයි O
 . O
 
 නොමැතිනම් O
 වෙයිලර් O
 මහත්මිය O
-පැවසූ B-say.01
+පැවසූ say.01
 දේ O
 නිවැරදි O
 ය O
@@ -659,21 +659,21 @@
 අපි O
 මෙම O
 අවස්ථා O
-පුළුල් B-expand.01
-කළ I-expand.01
-යුතුවෙමු I-expand.01
+පුළුල් expand.01
+කළ expand.01
+යුතුවෙමු expand.01
 . O
 
 ඡන්දය O
 හෙට O
-පැවැත්වේ B-take.14
+පැවැත්වේ take.14
 . O
 
-පවත්නා B-exist.01
+පවත්නා exist.01
 උපකරණ O
 මත O
 සෝදිසියෙන් O
-සිටිය B-build.01
+සිටිය build.01
 යුතුය O
 . O
 
@@ -682,8 +682,8 @@
 ඔබගේ O
 පිළිතුර O
 බෙහෙවින් O
-අගය B-appreciate.02
-කරමි I-appreciate.02
+අගය appreciate.02
+කරමි appreciate.02
 . O
 
 ඔවුහු O
@@ -692,12 +692,12 @@
 වාරික O
 ඔවුන් O
 මත O
-තබති B-put.01
+තබති put.01
 . O
 
 එය O
 නො O
-කියන්නේ B-call.01
+කියන්නේ call.01
 ඇයි O
 . O
 
@@ -705,7 +705,7 @@
 දැනටමත් O
 විවිධ O
 කැපවීම් O
-කර B-make.LV
+කර make.LV
 ඇත O
 . O
 
@@ -714,15 +714,15 @@
 රටවල O
 වගකීම O
 ගැන O
-කතා B-speak.01
-කළේය I-speak.01
+කතා speak.01
+කළේය speak.01
 . O
 
 අයවැය O
 ප්‍රතිසංස්කරණයේදී O
 මෙය O
-පිළිබිඹු B-reflect.01
-වන්නේ I-reflect.01
+පිළිබිඹු reflect.01
+වන්නේ reflect.01
 කෙසේද O
 . O
 
@@ -731,28 +731,28 @@
 ප්‍රතිසාධන O
 සැලැස්මට O
 ද O
-ඇතුළත් B-include.01
-වේ I-include.01
+ඇතුළත් include.01
+වේ include.01
 . O
 
 අපි O
 සියලු O
 උපදේශන O
 ද්‍රව්‍ය O
-ප්‍රකාශයට B-publish.01
+ප්‍රකාශයට publish.01
 . O
 
 හැමෝම O
 මේ O
-සාකච්ඡා B-discuss.01
-කරනවා I-discuss.01
+සාකච්ඡා discuss.01
+කරනවා discuss.01
 . O
 
 අපි O
-දනිමු B-know.01
+දනිමු know.01
 අප O
 කළ O
-යුතු B-need.01
+යුතු need.01
 දේ O
 . O
 
@@ -760,7 +760,7 @@
 තමයි O
 මට O
 ඔයාට O
-කියන්න B-tell.01
+කියන්න tell.01
 පුළුවන් O
 . O
 
@@ -769,26 +769,26 @@
 මම O
 අයිල්වර්ඩ් O
 මහතාට O
-පිළිතුරු B-answer.01
-දෙන්නෙමි I-answer.01
+පිළිතුරු answer.01
+දෙන්නෙමි answer.01
 . O
 
 යුරෝපොල්ට O
 ද O
 තීරණාත්මක O
 කාර්යභාරයක් O
-කිරීමට B-play.01
+කිරීමට play.01
 ඇත O
 . O
 
 අපි O
-මේ B-work.01
+මේ work.01
 පිළිබඳව O
 . O
 
 මිනිසුන්ගේ O
 ජාවාරම O
-දිගටම B-continue.01
+දිගටම continue.01
 . O
 
 එබැවින් O
@@ -796,7 +796,7 @@
 මෙම O
 ප්‍රතිපත්තිය O
 ඤාණවන්තව O
-පැවැත්විය B-conduct.01
+පැවැත්විය conduct.01
 යුතුය O
 . O
 
@@ -805,8 +805,8 @@
 දැඩි O
 නියාමන O
 රාමුවක් O
-අවශ්‍ය B-need.01
-වේ I-need.01
+අවශ්‍ය need.01
+වේ need.01
 . O
 
 ව්‍යාජ O
@@ -814,22 +814,22 @@
 ආරක්ෂා O
 වීමටද O
 මෙය O
-අදාළ B-apply.02
+අදාළ apply.02
 . O
 
 රෝගීන් O
 දැනටමත් O
 සක්‍රීයව O
 තොරතුරු O
-සොයමින් B-search.01
-සිටී I-search.01
+සොයමින් search.01
+සිටී search.01
 . O
 
 තොරතුරු O
 ප්‍රකාශයට O
 පෙර O
-නිරීක්ෂණය B-monitor.01
-කළ I-monitor.01
+නිරීක්ෂණය monitor.01
+කළ monitor.01
 යුතුය O
 . O
 
@@ -839,23 +839,23 @@
 හා O
 ප්‍රගතිශීලී O
 යෝජනා O
-අඩංගු B-contain.01
-වේ I-contain.01
+අඩංගු contain.01
+වේ contain.01
 . O
 
 තෙවනුව O
 ඔබ O
 ඖෂධවේදය O
 වෙත O
-යොමු B-refer.01
-විය I-refer.01
+යොමු refer.01
+විය refer.01
 . O
 
 අවස්ථා O
 කිහිපයකදී O
 මෙය O
 දැනටමත් O
-පවතී B-exist.01
+පවතී exist.01
 . O
 
 ෂ්ලයිටර් O
@@ -863,47 +863,47 @@
 එන්නත් O
 පිළිබඳ O
 ප්‍රශ්නය O
-ඉස්මතු B-highlight.01
-කර I-highlight.01
-තිබේ I-highlight.01
+ඉස්මතු highlight.01
+කර highlight.01
+තිබේ highlight.01
 . O
 
 සාමාජික O
 රටවල් O
 කිහිපයක O
 මෙය O
-සිදු B-happen.01
-වේ I-happen.01
+සිදු happen.01
+වේ happen.01
 . O
 
 ඔව් O
 එය O
-පවතී B-exist.01
+පවතී exist.01
 . O
 
 ගැටලුව O
-පවතින්නේ B-lie.07
+පවතින්නේ lie.07
 මෙහිදීය O
 . O
 
 උපකරණ O
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 එබැවිනි O
 . O
 
 දැන් O
 අපි O
 තවදුරටත් O
-යමු B-go.02
+යමු go.02
 . O
 
 ඔහු O
 කාර්මික O
 ලොබි O
 ගැන O
-කතා B-talk.01
-කර I-talk.01
+කතා talk.01
+කර talk.01
 ඇත O
 . O
 
@@ -911,8 +911,8 @@
 ද O
 ඔහුගේ O
 කාර්යභාරය O
-ඉටු B-play.02
-කර I-play.02
+ඉටු play.02
+කර play.02
 ඇත O
 . O
 
@@ -920,29 +920,29 @@
 හැක්කේ O
 කොමසාරිස් O
 වර්හියුගන් O
-පැවසූ B-say.01
+පැවසූ say.01
 දේ O
 පමණි O
 . O
 
 මම O
 එසේ O
-බලාපොරොත්තු B-hope.01
-වෙනවා I-hope.01
+බලාපොරොත්තු hope.01
+වෙනවා hope.01
 . O
 
 විවාදය O
-අවසන් B-close.01
-විය I-close.01
+අවසන් close.01
+විය close.01
 . O
 
 එහි O
 කාර්යභාරය O
 වන්නේ O
 විවාදය O
-මධ්‍යස්ථව B-moderate.01
+මධ්‍යස්ථව moderate.01
 හා O
-දිරිගැන්වීමයි B-inspire.01
+දිරිගැන්වීමයි inspire.01
 . O
 
 මේ O
@@ -951,22 +951,22 @@
 සමඟ O
 මම O
 මූලික O
-එකඟ B-disagree.01
-නොවෙමි I-disagree.01
+එකඟ disagree.01
+නොවෙමි disagree.01
 . O
 
 ආයතනික O
 ගැටළු O
-නිරාකරණය B-resolve.01
-කිරීම I-resolve.01
+නිරාකරණය resolve.01
+කිරීම resolve.01
 අප O
 යුතුය O
 . O
 
 තවත් O
 විස්මයන් O
-බැහැර B-rule_out.02
-කළ I-rule_out.02
+බැහැර rule_out.02
+කළ rule_out.02
 නොහැකිය O
 . O
 
@@ -974,55 +974,55 @@
 මෙම O
 මතය O
 සම්පූර්ණයෙන්ම O
-අනුමත B-endorse.01
-කරමි I-endorse.01
+අනුමත endorse.01
+කරමි endorse.01
 . O
 
 මම O
 දැනටමත් O
 නැගෙනහිර O
 හවුල්කාරිත්වය O
-සඳහන් B-mention.01
-කර I-mention.01
-ඇත්තෙමි I-mention.01
+සඳහන් mention.01
+කර mention.01
+ඇත්තෙමි mention.01
 . O
 
 මම O
 මේ O
 වෙත O
 නැවත O
-එන්නෙමි B-come.01
+එන්නෙමි come.01
 . O
 
 මම O
 මෙය O
-උච්චාරණය B-sort_out.02
-කරමි I-sort_out.02
+උච්චාරණය sort_out.02
+කරමි sort_out.02
 . O
 
 විරැකියාව O
-ඉහළ B-rise.01
-යමින් I-rise.01
-පවතී I-rise.01
+ඉහළ rise.01
+යමින් rise.01
+පවතී rise.01
 . O
 
 නිෂ්පාදන O
 සංඛ්‍යා O
-අඛණ්ඩව B-continue.01
-පහත B-fall.01
-වැටේ I-fall.01
+අඛණ්ඩව continue.01
+පහත fall.01
+වැටේ fall.01
 . O
 
 ඔබ O
 සාර්ථක O
 වේවායි O
 අපි O
-බලාපොරොත්තු B-wish.01
-වෙමු I-wish.01
+බලාපොරොත්තු wish.01
+වෙමු wish.01
 . O
 
 එය O
-ක්‍රියාකාරී B-function.01
+ක්‍රියාකාරී function.01
 බලශක්ති O
 වෙළඳපොලක් O
 නො O
@@ -1031,8 +1031,8 @@
 
 අපි O
 ඔවුන්ට O
-සහාය B-support.01
-දෙමු I-support.01
+සහාය support.01
+දෙමු support.01
 . O
 
 නිසැකවම O
@@ -1040,14 +1040,14 @@
 ඉක්මනින් O
 මූල්‍ය O
 වෙලඳපොලවල් O
-නියාමනය B-regulate.01
-කළ I-regulate.01
+නියාමනය regulate.01
+කළ regulate.01
 යුතුයි O
 . O
 
 මට O
 අඩු O
-සැලකිල්ලක් B-care.01
+සැලකිල්ලක් care.01
 නොහැක O
 . O
 
@@ -1056,7 +1056,7 @@
 මෙම O
 ගැටුම O
 කිසිවක් O
-විසඳා B-solve.01
+විසඳා solve.01
 . O
 
 මෙම O
@@ -1064,8 +1064,8 @@
 දෙක O
 මා O
 වෙත O
-පැහැදිලි B-explain.01
-කරන්න I-explain.01
+පැහැදිලි explain.01
+කරන්න explain.01
 . O
 
 අපි O
@@ -1075,16 +1075,16 @@
 වලින් O
 99 O
 % O
-ආනයනය B-import.01
-කරනවා I-import.01
+ආනයනය import.01
+කරනවා import.01
 . O
 
 මෙය O
 ඔබේ O
 වචනවල O
 අවංකභාවය O
-සනාථ B-confirm.01
-කරනු I-confirm.01
+සනාථ confirm.01
+කරනු confirm.01
 ඇත O
 . O
 
@@ -1093,31 +1093,31 @@
 ආර්ථික O
 අර්බුදය O
 ඉහළ O
-පවතී B-remain.01
+පවතී remain.01
 . O
 
 මම O
 ඔබට O
 සෑම O
 සාර්ථකත්වයක්ම O
-පතමි B-wish.01
+පතමි wish.01
 . O
 
 මෙම O
 ආදර්ශ O
 සමඟ O
 මම O
-එකඟ B-agree.01
-වෙමි I-agree.01
+එකඟ agree.01
+වෙමි agree.01
 . O
 
 යුරෝපයේ O
 අප O
 බොහෝ O
 අර්බුදවලට O
-මුහුණ B-face.01
-දී I-face.01
-සිටිමු I-face.01
+මුහුණ face.01
+දී face.01
+සිටිමු face.01
 . O
 
 එවැනි O
@@ -1126,8 +1126,8 @@
 රටවල් O
 අතර O
 ගෞරවය O
-අවශ්‍ය B-require.01
-වේ I-require.01
+අවශ්‍ය require.01
+වේ require.01
 . O
 
 මම O
@@ -1135,16 +1135,16 @@
 බොහෝ O
 සාර්ථක O
 වේවායි O
-ප්‍රාර්ථනා B-wish.01
+ප්‍රාර්ථනා wish.01
 . O
 
 එය O
-කළ B-do.02
+කළ do.02
 නොහැකිය O
 . O
 
 ඔබට O
-ස්තුතියි B-thank.01
+ස්තුතියි thank.01
 එය O
 හොඳ O
 සලකුණකි O
@@ -1155,44 +1155,44 @@
 මානසිකත්වයට O
 හා O
 අපේක්ෂාවන්ට O
-ගැලපේ B-match.01
+ගැලපේ match.01
 . O
 
 ඔබත් O
 ගැන O
-කතා B-speak.01
-කළා I-speak.01
+කතා speak.01
+කළා speak.01
 . O
 
 එය O
 හොඳින් O
 සූදානම් O
 බව O
-පෙනේ B-seem.01
+පෙනේ seem.01
 . O
 
 එහි O
 වැඩසටහනේ O
 නිවැරදි O
 ප්‍රමුඛතා O
-අඩංගු B-contain.01
-වේ I-contain.01
+අඩංගු contain.01
+වේ contain.01
 . O
 
 එබැවින් O
 අපට O
 යම් O
 නායකත්වයක් O
-ලබා B-let.01
-දෙමු I-let.01
+ලබා let.01
+දෙමු let.01
 . O
 
 මෙම O
 නඩුවෙන් O
 අපි O
 පාඩම O
-ඉගෙන B-learn.01
-ගත I-learn.01
+ඉගෙන learn.01
+ගත learn.01
 යුතුය O
 . O
 
@@ -1201,7 +1201,7 @@
 යුරෝපීය O
 බලශක්ති O
 ප්‍රතිපත්තියක් O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 ඔබේ O
@@ -1210,12 +1210,12 @@
 ප්‍රමුඛතාවය O
 ගැන O
 මම O
-කියෙව්වා B-read.01
+කියෙව්වා read.01
 . O
 
 ඔවුන් O
 දිනපතාම O
-ගැටෙයි B-clash.01
+ගැටෙයි clash.01
 . O
 
 දැනුමේ O
@@ -1223,23 +1223,23 @@
 චලනය O
 ගැන O
 ඔබ O
-සඳහන් B-mention.01
-කළා I-mention.01
+සඳහන් mention.01
+කළා mention.01
 . O
 
 අපට O
 පොදු O
 අරමුණක් O
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 එබැවිනි O
 . O
 
 අපට O
 ශක්තිමත් O
 ආයතන O
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 එබැවිනි O
 . O
 
@@ -1247,18 +1247,18 @@
 චෙක් O
 ජනාධිපති O
 සුබ O
-පතමි B-wish.01
+පතමි wish.01
 . O
 
 ඡන්දය O
-අනුගමනය B-follow.01
-කරනු I-follow.01
+අනුගමනය follow.01
+කරනු follow.01
 ඇත O
 . O
 
 මිනිස්සු O
 එතන O
-මැරෙනවා B-die.01
+මැරෙනවා die.01
 . O
 
 ගෑස් O
@@ -1266,8 +1266,8 @@
 බොහෝ O
 යුරෝපීය O
 රාජ්‍යයන්ට O
-බලපා B-hit.01
-තිබේ I-hit.01
+බලපා hit.01
+තිබේ hit.01
 . O
 
 වෙනත් O
@@ -1276,34 +1276,34 @@
 ද O
 මෙවැනිම O
 රෙගුලාසි O
-අදාළ B-apply.02
+අදාළ apply.02
 . O
 
 මම O
 ඔබට O
 සාර්ථක O
 වේවායි O
-ප්‍රාර්ථනා B-wish.01
+ප්‍රාර්ථනා wish.01
 . O
 
 ජනාධිපති O
 සෑම O
 සාර්ථකත්වයක්ම O
-පතමි B-wish.01
+පතමි wish.01
 . O
 
 තිර O
 සෑම O
 ඡන්දයක්ම O
-වාර්තා B-record.01
-කරයි I-record.01
+වාර්තා record.01
+කරයි record.01
 . O
 
 එබැවින් O
 අපි O
 ඡන්ද O
 ඉදිරියට O
-යමු B-move.01
+යමු move.01
 . O
 
 මෙම O
@@ -1311,32 +1311,32 @@
 මෙම O
 අංගයට O
 මම O
-එකඟ B-disagree.01
-නොවෙමි I-disagree.01
+එකඟ disagree.01
+නොවෙමි disagree.01
 . O
 
 එබැවින් O
 ජනතාව O
 තමන්ට O
-අවශ්‍ය B-want.01
+අවශ්‍ය want.01
 දේ O
-දැන B-know.01
-සිටිය I-know.01
+දැන know.01
+සිටිය know.01
 යුතුය O
 . O
 
 ඔහු O
-අත්පොළසන් B-congratulate.01
+අත්පොළසන් congratulate.01
 බව O
 මට O
-පෙනේ B-see.01
+පෙනේ see.01
 . O
 
 එබැවින් O
 සමස්ත O
 වාර්තාවට O
-සහාය B-support.01
-දැක්වීමට I-support.01
+සහාය support.01
+දැක්වීමට support.01
 මට O
 නොහැකි O
 . O
@@ -1346,8 +1346,8 @@
 නිරපේක්ෂ O
 ප්‍රවේශය O
 මම O
-ප්‍රතික්ෂේප B-reject.01
-කරමි I-reject.01
+ප්‍රතික්ෂේප reject.01
+කරමි reject.01
 . O
 
 ඒ O
@@ -1355,41 +1355,41 @@
 මම O
 24 O
 සංශෝධනයට O
-සහාය B-support.01
-දැක්වූයේ I-support.01
+සහාය support.01
+දැක්වූයේ support.01
 . O
 
 අවාසනාවට O
 එය O
-සංශෝධනය B-amend.01
-විය I-amend.01
+සංශෝධනය amend.01
+විය amend.01
 . O
 
 ඒවා O
 සදහටම O
-මතක B-remember.01
+මතක remember.01
 මම O
-බලාපොරොත්තු B-hope.01
-වෙමි I-hope.01
+බලාපොරොත්තු hope.01
+වෙමි hope.01
 . O
 
 මේ O
 හේතු O
 නිසා O
 අපි O
-වැළකී B-abstain.01
-සිටියෙමු I-abstain.01
+වැළකී abstain.01
+සිටියෙමු abstain.01
 . O
 
 එවැනි O
 විරුද්ධත්වයක් O
 උණුසුම් O
-පිළිගත B-welcome.01
+පිළිගත welcome.01
 . O
 
 ආරක්ෂාව O
-දියුණු B-improve.01
-කිරීමේ I-improve.01
+දියුණු improve.01
+කිරීමේ improve.01
 මාර්ගය O
 මෙය O
 නො O
@@ -1399,26 +1399,26 @@
 ඒ O
 නිසයි O
 මම O
-වැළකී B-abstain.01
-සිටියේ I-abstain.01
+වැළකී abstain.01
+සිටියේ abstain.01
 . O
 
-ගැනීම B-take.01
+ගැනීම take.01
 ද O
 මිලකට O
-පැමිණේ B-come.01
+පැමිණේ come.01
 . O
 
 මම O
 වාර්තාවට O
 පක්ෂව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එය O
 මට O
-එකඟ B-agree.01
-විය I-agree.01
+එකඟ agree.01
+විය agree.01
 නොහැකි O
 දෙයකි O
 . O
@@ -1429,48 +1429,48 @@
 සඳහා O
 විශේෂ O
 සංක්ෂිප්තයක් O
-තබා B-hold.01
+තබා hold.01
 නැත O
 . O
 
 මම O
 එයට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එබැවින් O
 මම O
 වාර්තාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එබැවින් O
 මෙම O
 වාර්තාවෙන් O
-වැළකී B-abstain.01
-සිටීමට I-abstain.01
+වැළකී abstain.01
+සිටීමට abstain.01
 මම O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එය O
 අඛණ්ඩව O
 සහනාධාරයේ O
 මූලධර්මය O
-උල්ලංඝනය B-violate.01
-කරයි I-violate.01
+උල්ලංඝනය violate.01
+කරයි violate.01
 . O
 
 මම O
 පක්ෂව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 එය O
 වරක් O
-හානියක් B-hurt.01
+හානියක් hurt.01
 නො O
 ඇත O
 . O
@@ -1480,30 +1480,30 @@
 ඉතා O
 උණුසුම් O
 පිළිගැනීමක් O
-ප්‍රාර්ථනා B-wish.01
-කරමි I-wish.01
+ප්‍රාර්ථනා wish.01
+කරමි wish.01
 . O
 
 එය O
-ලබා B-give.01
-දෙනවා I-give.01
+ලබා give.01
+දෙනවා give.01
 හේතු O
 ඉමහත් O
 කනස්සල්ලට O
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 මේ O
 සියල්ල O
-අවශ්‍ය B-need.01
-විය I-need.01
+අවශ්‍ය need.01
+විය need.01
 . O
 
 මෙම O
 සාකච්ඡා O
-අත්කර B-achieve.01
-ගෙන I-achieve.01
+අත්කර achieve.01
+ගෙන achieve.01
 ඇත්තේ O
 කුමක්ද O
 . O
@@ -1513,19 +1513,19 @@
 වනු O
 ඇතැයි O
 මම O
-බලාපොරොත්තු B-hope.01
-වෙමි I-hope.01
+බලාපොරොත්තු hope.01
+වෙමි hope.01
 . O
 
 එබැවින් O
 මූලික O
 ගැලපීමක් O
-අවශ්‍ය B-need.01
-වේ I-need.01
+අවශ්‍ය need.01
+වේ need.01
 . O
 
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 ක්ෂණික O
 විරාමයකි O
 . O
@@ -1533,44 +1533,44 @@
 අමතර O
 කරුණු O
 දෙකක් O
-ඉදිරිපත් B-make.LV
-කිරීමට I-make.LV
+ඉදිරිපත් make.LV
+කිරීමට make.LV
 මා O
-කැමතිය B-like.02
+කැමතිය like.02
 . O
 
 පලස්තීනුවන් O
 හමාස් O
 වලින් O
-ආරක්ෂා B-protect.01
-කළ I-protect.01
-යුතුය B-need.01
+ආරක්ෂා protect.01
+කළ protect.01
+යුතුය need.01
 . O
 
 පලස්තීන O
 වැසියන් O
 හමාස් O
 වලින් O
-ආරක්ෂා B-protect.01
-කළ I-protect.01
-යුතුය B-need.01
+ආරක්ෂා protect.01
+කළ protect.01
+යුතුය need.01
 . O
 
 හමාස් O
 මෙය O
-පැවසිය B-tell.01
+පැවසිය tell.01
 යුතුය O
 . O
 
 යනු O
 අපට O
-අවශ්‍ය B-want.01
+අවශ්‍ය want.01
 දෙයයි O
 . O
 
 ඔබ O
-කතා B-speak.01
-කළේ I-speak.01
+කතා speak.01
+කළේ speak.01
 ආරක්ෂාව O
 සහ O
 ජාත්‍යන්තර O
@@ -1582,13 +1582,13 @@
 ජාත්‍යන්තර O
 ප්‍රජාවට O
 වඩා O
-කළ B-do.02
+කළ do.02
 හැකිද O
 . O
 
 එය O
 තවත් O
-කළ B-do.02
+කළ do.02
 යුතුව O
 තිබුණි O
 . O
@@ -1596,174 +1596,174 @@
 ජනාධිපතිතුමනි O
 මම O
 ඇත්තටම O
-ඉවරයි B-finish.01
+ඉවරයි finish.01
 . O
 
 එක්සත් O
 ආරක්ෂක O
 මණ්ඩලය O
 යෝජනාවක් O
-සම්මත B-adopt.01
-කර I-adopt.01
-ගෙන I-adopt.01
-තිබෙයි I-adopt.01
+සම්මත adopt.01
+කර adopt.01
+ගෙන adopt.01
+තිබෙයි adopt.01
 . O
 
 සංගම් O
 ගිවිසුම්වල O
 වගන්ති O
-භාවිතා B-use.01
-කරන්න I-use.01
+භාවිතා use.01
+කරන්න use.01
 . O
 
 ජනාධිපති O
 තුමනි O
 මම O
 ත්‍රස්තවාදය O
-පිළිකුල් B-utter.01
+පිළිකුල් utter.01
 . O
 
 ත‍්‍රස්තවාදයේ O
 ප‍්‍රචාරය O
 මම O
-ප‍්‍රතික්ෂේප B-denounce.01
-කරමි I-denounce.01
+ප‍්‍රතික්ෂේප denounce.01
+කරමි denounce.01
 . O
 
 ඊශ්‍රායලය O
 රාජ්‍ය O
 දෙකක O
 විසඳුමක් O
-පිළිගනියි B-accept.01
+පිළිගනියි accept.01
 . O
 
 අපට O
 සංවාදයක් O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 ඔවුන් O
 හමාස් O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 ඇයි O
 . O
 
 ඔවුහු O
 ඔබේ O
 හදවත O
-බිඳ B-break.01
-දමයි I-break.01
+බිඳ break.01
+දමයි break.01
 . O
 
 ඔව් O
 හමාස් O
 රොකට් O
-නැවැත්විය B-stop.01
+නැවැත්විය stop.01
 යුතුයි O
 . O
 
 අපිත් O
 ඊජිප්තුවට O
-ගියෙමු B-go.02
+ගියෙමු go.02
 . O
 
 ප්රශ්නයම O
-පිළිතුරු B-answer.01
+පිළිතුරු answer.01
 . O
 
 අද O
 අපි O
 ඊශ්‍රායලය O
-හෙළා B-condemn.01
-දකිමු I-condemn.01
+හෙළා condemn.01
+දකිමු condemn.01
 . O
 
 ඇත්නම් O
 මට O
-කියන්න B-tell.01
+කියන්න tell.01
 . O
 
 මූලික O
 වගකීම O
-පහව B-fade.01
-යන්නේ I-fade.01
+පහව fade.01
+යන්නේ fade.01
 නැත O
 . O
 
 එහෙත් O
 අපි O
 වටිනාකමක් O
-ලබා B-provide.01
+ලබා provide.01
 නැත O
 . O
 
 මේ O
 අවස්ථාවේ O
 සභාව O
-කරන්නේ B-do.02
+කරන්නේ do.02
 කුමක්ද O
 . O
 
 කිසිවෙකු O
 ඔවුන් O
 ගැන O
-තැකීමක් B-care.01
+තැකීමක් care.01
 . O
 
 වචන O
 වලින් O
 ක්‍රියාවන්ට O
 අප O
-ගමන් B-pass.05
-කරන්නේ I-pass.05
+ගමන් pass.05
+කරන්නේ pass.05
 කෙසේද O
 . O
 
 ඊශ්‍රායලය O
-හෙලමින් B-bomb.01
+හෙලමින් bomb.01
 ගිටෝවක් O
-විනාශ B-destroy.01
-කරමින් I-destroy.01
-සිටී I-destroy.01
+විනාශ destroy.01
+කරමින් destroy.01
+සිටී destroy.01
 . O
 
 මෙය O
-නැවැත්විය B-stop.01
+නැවැත්විය stop.01
 යුතුය O
 . O
 
 එය O
 ප්‍රමාදයකින් O
 තොරව O
-ක්‍රියාත්මක B-implement.01
-කළ I-implement.01
+ක්‍රියාත්මක implement.01
+කළ implement.01
 යුතුය O
 . O
 
 මම O
 එය O
 අප්‍රිකාවේ O
-දැක B-see.01
-ඇත්තෙමි I-see.01
+දැක see.01
+ඇත්තෙමි see.01
 . O
 
 මම O
 එය O
 අයර්ලන්තයේ O
-දැක B-see.01
-ඇත්තෙමි I-see.01
+දැක see.01
+ඇත්තෙමි see.01
 . O
 
 මම O
 එය O
 බොහෝ O
 තැන්වල O
-දැක B-see.01
-ඇත්තෙමි I-see.01
+දැක see.01
+ඇත්තෙමි see.01
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 අපි O
 ඒ O
 ගැන O
@@ -1776,74 +1776,74 @@
 කොතරම් O
 දුෂ්කරදැයි O
 මම O
-දනිමි B-know.01
+දනිමි know.01
 . O
 
 ඊශ්‍රායලය O
-නැවැත්වීමට B-stop.01
+නැවැත්වීමට stop.01
 කුමක් O
-කළ B-do.02
+කළ do.02
 හැකිද O
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 එහි O
 දේශපාලනය O
 ඊශ්‍රායලයට O
 ද O
-හානි B-harm.01
-කරයි I-harm.01
+හානි harm.01
+කරයි harm.01
 . O
 
 යුරෝපීය O
 සංගමයට O
 එහි O
-උදව් B-help.01
-කළ I-help.01
+උදව් help.01
+කළ help.01
 හැකිය O
 . O
 
 නමුත් O
 අපගේ O
 හැකියාවන් O
-ඉක්මවා B-overstate.01
-නොයන්න I-overstate.01
+ඉක්මවා overstate.01
+නොයන්න overstate.01
 . O
 
 අපට O
 ඇමරිකා O
 අධිෂ්ඨානය O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 එබැවින් O
 අපට O
 එම O
 භූමිකාව O
-ඉටු B-exercise.01
-කිරීමට I-exercise.01
+ඉටු exercise.01
+කිරීමට exercise.01
 හැකි O
 වේ O
 . O
 
 ඇත්ත O
-සිදු B-happen.01
-වූයේ I-happen.01
+සිදු happen.01
+වූයේ happen.01
 කුමක්ද O
 . O
 
 මෙම O
 අවාසනාවන්ත O
 යුද්ධය O
-අවසන් B-end.01
-කිරීමට I-end.01
+අවසන් end.01
+කිරීමට end.01
 කාලයයි O
 . O
 
 ඊස්රායල් O
 හමුදා O
-නැවත B-return.01
+නැවත return.01
 ඔවුන්ගේ O
 බැරැක්ක O
 වෙත O
@@ -1853,76 +1853,76 @@
 හමාස් O
 ඊශ්‍රායලයට O
 රොකට් O
-ප්‍රහාර B-fire.01
+ප්‍රහාර fire.01
 . O
 
 අපි O
 මෙතන O
-බලාගෙන B-wait.01
-ඉන්නවා I-wait.01
+බලාගෙන wait.01
+ඉන්නවා wait.01
 . O
 
 එය O
 න්‍යාය O
-මකා B-delete.01
-දමා I-delete.01
+මකා delete.01
+දමා delete.01
 තිබේද O
 . O
 
 නමුත් O
 මරණ O
 සංඛ්‍යාව O
-ඉහළ B-rise.01
-යමින් I-rise.01
-පවතී I-rise.01
+ඉහළ rise.01
+යමින් rise.01
+පවතී rise.01
 . O
 
 කනගාටුවට O
 මෙම O
 කම්පනකාරී O
 සංඛ්‍යාව O
-වැඩි B-increase.01
-වනු I-increase.01
+වැඩි increase.01
+වනු increase.01
 ඇත O
 . O
 
 මෙය O
-නැවැත්විය B-stop.01
+නැවැත්විය stop.01
 . O
 
 එක්සත් O
 පහසුකම් O
-පහර B-attack.01
-දී I-attack.01
+පහර attack.01
+දී attack.01
 ඇත O
 . O
 
 මෙහෙයුම O
 කියෙව් O
 වෙත O
-ගියේය B-go.02
+ගියේය go.02
 . O
 
 මම O
 මෙතන O
-නවතිනවා B-stop.01
+නවතිනවා stop.01
 . O
 
 නමුත් O
 ඔවුන්ට O
 විසඳුමක් O
-අවශ්‍යද B-want.01
+අවශ්‍යද want.01
 . O
 
 අපි O
 අපේ O
 කොටස O
-කළා B-do.02
+කළා do.02
 . O
 
 ප්‍රතිචාර O
 අපට O
-ගත B-take.01
+ගත take.01
 හැකි O
 ක්‍රියාමාර්ගය O
 කුමක්ද O
@@ -1932,21 +1932,21 @@
 තවත් O
 බොහෝ O
 සහ O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 මෙම O
 ප්‍රතිපත්තිය O
-අසාර්ථක B-fail.01
-විය I-fail.01
+අසාර්ථක fail.01
+විය fail.01
 . O
 
 එහි O
 අවශ්‍යතා O
 එලදායි O
-ආරක්ෂා B-defend.01
-කර I-defend.01
-ගැනීමට I-defend.01
+ආරක්ෂා defend.01
+කර defend.01
+ගැනීමට defend.01
 එයට O
 හැකිද O
 . O
@@ -1954,29 +1954,29 @@
 මම O
 එසේ O
 නො O
-සිතිය B-think.01
+සිතිය think.01
 යුතුයි O
 . O
 
 සුවිශේෂී O
 තත්වයක් O
-උදා B-come.01
-වී I-come.01
-තිබේ I-come.01
+උදා come.01
+වී come.01
+තිබේ come.01
 . O
 
 මධ්‍යස්ථ O
 පක්ෂයක් O
 ද O
-සම්බන්ධ B-involve.01
+සම්බන්ධ involve.01
 විය O
 යුතුය O
 . O
 
 සංගමයට O
 උණුසුම O
-සහතික B-guarantee.01
-කළ I-guarantee.01
+සහතික guarantee.01
+කළ guarantee.01
 නොහැක්කේ O
 ඇයි O
 . O
@@ -1985,45 +1985,45 @@
 සංගමය O
 තුළ O
 සහයෝගීතාවය O
-අවශ්‍ය B-require.01
-වේ I-require.01
+අවශ්‍ය require.01
+වේ require.01
 . O
 
 මෙම O
 අවස්ථාවෙන් O
 අප O
 ප්‍රයෝජන O
-ගත B-take.01
+ගත take.01
 යුතුය O
 . O
 
 සම්බාධක O
-ක්‍රියාත්මක B-work.09
-විය I-work.09
+ක්‍රියාත්මක work.09
+විය work.09
 නොහැක O
 . O
 
 යුරෝපයේ O
 පුරවැසියන් O
 ඇපයට O
-තබා B-hold.01
+තබා hold.01
 ඇත O
 . O
 
 ගෑස් O
-සපයනු B-supply.01
-ලබන්නේ I-supply.01
+සපයනු supply.01
+ලබන්නේ supply.01
 රුසියාවෙනි O
 . O
 
 අපට O
 තවදුරටත් O
 අක්‍රියතාව O
-ඉවසිය B-tolerate.01
+ඉවසිය tolerate.01
 නොහැක O
 . O
 
-බලපෑමට B-affect.01
+බලපෑමට affect.01
 තනි O
 පුරවැසියන්ට O
 කවුද O
@@ -2032,13 +2032,13 @@
 අපගේ O
 තාන්ත්‍රික O
 ප්‍රයත්නයන් O
-තීව්‍ර B-intensify.01
-කරමු I-intensify.01
+තීව්‍ර intensify.01
+කරමු intensify.01
 . O
 
 අවම O
 එය O
-පෙනුනේ B-look.02
+පෙනුනේ look.02
 එලෙස O
 . O
 
@@ -2047,20 +2047,20 @@
 වන්නේ O
 මන්දැයි O
 මම O
-කල්පනා B-wonder.01
-කරමි I-wonder.01
+කල්පනා wonder.01
+කරමි wonder.01
 . O
 
 කවුන්සිලයේ O
 ඔබ O
-කර B-do.02
+කර do.02
 ඇත්තේ O
 කුමක්ද O
 . O
 
 ඔබ O
-සඳහන් B-mention.01
-කළේ I-mention.01
+සඳහන් mention.01
+කළේ mention.01
 අභ්‍යන්තර O
 බලශක්ති O
 පැකේජයයි O
@@ -2068,11 +2068,11 @@
 
 අපි O
 පීඩනය O
-යුතුයි B-need.01
+යුතුයි need.01
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 මේක O
 දෙපැත්තටම O
 වැදගත් O
@@ -2083,18 +2083,18 @@
 උදව් O
 සහ O
 අවධානය O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 බොහෝ O
 සංදේශ O
-අත්සන් B-sign.01
-කර I-sign.01
+අත්සන් sign.01
+කර sign.01
 ඇත O
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 මෙය O
 ඉතා O
 කාලෝචිත O
@@ -2105,14 +2105,14 @@
 දී O
 අපි O
 ඇත්ත O
-සිදුවූ B-happen.01
+සිදුවූ happen.01
 දේ O
-අවතක්සේරු B-understand.01
+අවතක්සේරු understand.01
 . O
 
 කාට O
-දොස් B-blame.01
-පැවරිය I-blame.01
+දොස් blame.01
+පැවරිය blame.01
 යන්න O
 පැහැදිලි O
 නැත O
@@ -2121,13 +2121,13 @@
 වර්තමාන O
 අර්බුදයෙන් O
 අප O
-ඉගෙන B-learn.01
-ගත I-learn.01
+ඉගෙන learn.01
+ගත learn.01
 යුතුය O
 . O
 
 නබුකෝ O
-ඉදි B-build.01
+ඉදි build.01
 වේද O
 . O
 
@@ -2135,19 +2135,19 @@
 අනිවාර්ය O
 ඉන්ධන O
 සංචිත O
-වැඩි B-increase.01
-කර I-increase.01
+වැඩි increase.01
+කර increase.01
 . O
 
 අපි O
 එසේ O
-බලාපොරොත්තු B-hope.01
-වෙමු I-hope.01
+බලාපොරොත්තු hope.01
+වෙමු hope.01
 . O
 
 අපට O
 පාඨ O
-අවශ්‍ය B-need.01
+අවශ්‍ය need.01
 නැත O
 . O
 
@@ -2155,13 +2155,13 @@
 යටිතල O
 සඳහා O
 ආයෝජන O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 හදිසි O
 පියවරක් O
-අවශ්‍ය B-need.01
-වන්නේ I-need.01
+අවශ්‍ය need.01
+වන්නේ need.01
 මේ O
 නිසා O
 ය O
@@ -2171,71 +2171,71 @@
 තරමක් O
 පැහැදිලි O
 කළ O
-යුතුය B-need.01
+යුතුය need.01
 . O
 
 ඔවුන්ට O
-උදව් B-help.01
-කළ I-help.01
+උදව් help.01
+කළ help.01
 හැකිද O
 . O
 
-පහත B-follow.01
+පහත follow.01
 ප්‍රශ්න O
 සභාවට O
-යොමු B-address.01
-කෙරේ I-address.01
+යොමු address.01
+කෙරේ address.01
 . O
 
 අපි O
 ඒ O
 වෙනුවෙන් O
 වෙහෙසවී O
-වැඩ B-work.01
-කරමු I-work.01
+වැඩ work.01
+කරමු work.01
 . O
 
 ඒ O
-කියන්නේ B-mean.01
+කියන්නේ mean.01
 අපනයන O
 . O
 
-මිලදී B-purchase.01
-ගැනීමේ I-purchase.01
+මිලදී purchase.01
+ගැනීමේ purchase.01
 බලය O
-අඩු B-decrease.01
-වේ I-decrease.01
+අඩු decrease.01
+වේ decrease.01
 . O
 
 එය O
 ප්‍රශ්න O
 කාලය O
-අවසන් B-conclude.01
-කරයි I-conclude.01
+අවසන් conclude.01
+කරයි conclude.01
 . O
 
 ඒවායින් O
 සමහරක් O
-සඳහන් B-mention.01
-කිරීමට I-mention.01
+සඳහන් mention.01
+කිරීමට mention.01
 මට O
-ඉඩ B-let.01
-දෙන්න I-let.01
+ඉඩ let.01
+දෙන්න let.01
 . O
 
 එවැනි O
 ක්‍රියාදාමයන්ට O
 අපි O
-සහාය B-support.01
-දෙන්නෙමු I-support.01
+සහාය support.01
+දෙන්නෙමු support.01
 . O
 
 මම O
 මෑත O
 කථාංග O
 දෙකක් O
-විස්තර B-describe.01
-කරමි I-describe.01
+විස්තර describe.01
+කරමි describe.01
 . O
 
 මෙම O
@@ -2243,22 +2243,22 @@
 යහපත් O
 එක්සත් O
 ජනවරමක් O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 මෙය O
 එරිත්‍රියාව O
 මත O
 පීඩනය O
-වැඩි B-increase.01
-කළ I-increase.01
+වැඩි increase.01
+කළ increase.01
 යුතුය O
 . O
 
 දැන් O
 එය O
-ක්රියා B-act.02
-කිරීමට I-act.02
+ක්රියා act.02
+කිරීමට act.02
 කාලයයි O
 . O
 
@@ -2266,15 +2266,15 @@
 තත්වය O
 පහසුවෙන් O
 තවදුරටත් O
-පිරිහීමට B-deteriorate.01
-ලක්විය I-deteriorate.01
+පිරිහීමට deteriorate.01
+ලක්විය deteriorate.01
 හැකිය O
 . O
 
 අටලන්ටා O
 යනු O
 මුහුදු O
-මැඩපැවැත්වීම B-curb.01
+මැඩපැවැත්වීම curb.01
 සඳහා O
 පියවරකි O
 . O
@@ -2282,18 +2282,18 @@
 එය O
 පැරණි O
 ඉංග්‍රීසි O
-කියමනකි B-say.01
+කියමනකි say.01
 . O
 
 කොමසාරිස්වරයා O
 මේ O
-සඳහන් B-mention.01
-කර I-mention.01
+සඳහන් mention.01
+කර mention.01
 ඇත O
 . O
 
 අවසාන O
-වශයෙන් B-like.02
+වශයෙන් like.02
 මම O
 වීසා O
 විධිවිධාන O
@@ -2302,9 +2302,9 @@
 ස්වාධීන O
 මාධ්‍යවේදීන්ට O
 තවමත් O
-පීඩා B-persecute.01
-කරනු I-persecute.01
-ලැබේ I-persecute.01
+පීඩා persecute.01
+කරනු persecute.01
+ලැබේ persecute.01
 . O
 
 යුරෝපය O
@@ -2312,22 +2312,22 @@
 ආර්ථික O
 ප්‍රතිසංස්කරණ O
 සඳහා O
-සහාය B-support.01
-දිය I-support.01
+සහාය support.01
+දිය support.01
 යුතුය O
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 අපි O
 හොඳින් O
-සවන් B-listen.01
-දෙනවා I-listen.01
+සවන් listen.01
+දෙනවා listen.01
 . O
 
 ඔහු O
-සැඟවී B-hide.01
-සිටින්නේ I-hide.01
+සැඟවී hide.01
+සිටින්නේ hide.01
 කවුද O
 . O
 
@@ -2335,33 +2335,33 @@
 මගේ O
 එකම O
 දරුවා O
-රැගෙන B-take.01
+රැගෙන take.01
 ඇත O
 . O
 
 මට O
 කොහේවත් O
-යන්න B-go.02
-අවශ්‍ය B-want.01
+යන්න go.02
+අවශ්‍ය want.01
 නැහැ O
 . O
 
 මෙය O
-සත්‍යාපනය B-verify.01
+සත්‍යාපනය verify.01
 කිසිවෙකු O
 කරදර O
-කර B-take.01
+කර take.01
 තිබේද O
 . O
 
 එය O
 මා O
-සලකුණු B-mark.01
-කර I-mark.01
+සලකුණු mark.01
+කර mark.01
 ඇත O
 . O
 
-ඉදිරි B-come.01
+ඉදිරි come.01
 පරම්පරාවන් O
 සඳහා O
 අපගේ O
@@ -2374,8 +2374,8 @@
 කාරණය O
 ද O
 මා O
-සැලකිලිමත් B-concern.01
-වේ I-concern.01
+සැලකිලිමත් concern.01
+වේ concern.01
 . O
 
 කොමසාරිස් O
@@ -2383,14 +2383,14 @@
 ඔබ O
 සමඟ O
 සම්පූර්ණයෙන්ම O
-එකඟ B-disagree.01
-නොවෙමි I-disagree.01
+එකඟ disagree.01
+නොවෙමි disagree.01
 . O
 
 කෙසේ O
 අපි O
 තව O
-යා B-go.02
+යා go.02
 යුතුයි O
 . O
 
@@ -2398,68 +2398,68 @@
 දී O
 පළමු O
 නියෝගය O
-ලැබුණි B-come.01
+ලැබුණි come.01
 . O
 
 ඔවුන් O
 නීතිරීතිවලට O
-අනුකූල B-comply.01
-වන්නේ I-comply.01
+අනුකූල comply.01
+වන්නේ comply.01
 කෙසේද O
 . O
 
 ඒක O
-වැඩ B-work.01
+වැඩ work.01
 . O
 
 කීදෙනෙක් O
 එම O
 ආරාධනය O
-පිළිගනීදැයි B-accept.01
+පිළිගනීදැයි accept.01
 මම O
-කල්පනා B-wonder.01
-කරමි I-wonder.01
+කල්පනා wonder.01
+කරමි wonder.01
 . O
 
 සමහර O
 ඔවුන් O
 ව්‍යවස්ථාව O
-සංශෝධනය B-amend.01
-කරනු I-amend.01
+සංශෝධනය amend.01
+කරනු amend.01
 ඇත O
 . O
 
 අපි O
 වියදම් O
 ගැන O
-කතා B-talk.01
-කරමු I-talk.01
+කතා talk.01
+කරමු talk.01
 . O
 
 ඔබ O
 ඒවා O
 කිසියම් O
 ආකාරයකින් O
-විශ්ලේෂණය B-analyze.01
-කරනවාද I-analyze.01
+විශ්ලේෂණය analyze.01
+කරනවාද analyze.01
 . O
 
 අප O
-ආමන්ත්‍රණය B-address.02
-කළ I-address.02
-යුත්තේ B-need.01
+ආමන්ත්‍රණය address.02
+කළ address.02
+යුත්තේ need.01
 එයයි O
 . O
 
-සිදුවී B-happen.01
+සිදුවී happen.01
 ඇත්තේ O
 කුමක්ද O
 . O
 
 මෙම O
 වර්ධනයන් O
-සත්‍යාපනය B-verify.01
-කරන්නේ I-verify.01
+සත්‍යාපනය verify.01
+කරන්නේ verify.01
 කෙසේද O
 . O
 
@@ -2467,8 +2467,8 @@
 ද O
 යම් O
 සිතුවිල්ලක් O
-අවශ්‍ය B-require.01
-වේ I-require.01
+අවශ්‍ය require.01
+වේ require.01
 . O
 
 මෙම O
@@ -2479,20 +2479,20 @@
 ප්‍රමාණයේ O
 ව්‍යාපාරවලට O
 කලාතුරකින් O
-බලපායි B-affect.01
+බලපායි affect.01
 . O
 
 හැකි O
 එය O
-අවම B-minimize.01
-කිරීම I-minimize.01
+අවම minimize.01
+කිරීම minimize.01
 වැදගත්ය O
 . O
 
 ඔහු O
 ඇයව O
-විශ්වාස B-trust.02
-කළා I-trust.02
+විශ්වාස trust.02
+කළා trust.02
 . O
 
 වෙනුවට O
@@ -2501,29 +2501,29 @@
 හැසිරීම O
 අකීකරුකම O
 ලෙස O
-සලකයි B-treat.01
+සලකයි treat.01
 . O
 
 අයිතිකරු O
 අශ්වයාට O
-පහර B-beat.01
-දෙයි I-beat.01
+පහර beat.01
+දෙයි beat.01
 . O
 
 එබැවින් O
 අපි O
 මෙම O
 නියාමනය O
-සමාලෝචනය B-review.01
-කළ I-review.01
-යුතුය B-need.01
+සමාලෝචනය review.01
+කළ review.01
+යුතුය need.01
 . O
 
 කෙසේ O
 සාමාජික O
 රාජ්‍යයක් O
 එසේ O
-කර B-do.02
+කර do.02
 නැත O
 . O
 
@@ -2531,21 +2531,21 @@
 ආහාර O
 මෙය O
 සම්පුර්ණයෙන්ම O
-සාක්ෂාත් B-achieve.01
-වේ I-achieve.01
+සාක්ෂාත් achieve.01
+වේ achieve.01
 . O
 
 මමත් O
 මෙම O
 ගැටලුවෙන් O
-පීඩාවට B-affect.01
-පත්ව I-affect.01
-සිටිමි I-affect.01
+පීඩාවට affect.01
+පත්ව affect.01
+සිටිමි affect.01
 . O
 
 මෙය O
-කරගෙන B-continue.01
-යා I-continue.01
+කරගෙන continue.01
+යා continue.01
 නොහැක O
 . O
 
@@ -2554,17 +2554,17 @@
 පාර්ලිමේන්තු O
 යෝජනාව O
 මම O
-පිළිගනිමි B-welcome.01
+පිළිගනිමි welcome.01
 . O
 
 එය O
 බෙහෙවින් O
-අවශ්‍ය B-need.01
-විය I-need.01
+අවශ්‍ය need.01
+විය need.01
 . O
 
 සමානුපාතිකත්වය O
-යනු B-mean.01
+යනු mean.01
 කුමක්දැයි O
 මට O
 විශ්වාස O
@@ -2575,21 +2575,21 @@
 ප්‍රතිපත්තිමය O
 ලිස්බන් O
 ගිවිසුමට O
-විරුද්ධ B-oppose.01
-වෙමු I-oppose.01
+විරුද්ධ oppose.01
+වෙමු oppose.01
 . O
 
 එබැවින් O
 මම O
 විකල්ප O
 යෝජනාවක් O
-සභාගත B-veto.01
-කළෙමි I-veto.01
+සභාගත veto.01
+කළෙමි veto.01
 . O
 
 Ventotene O
 ප්‍රකාශනය O
-පැවසුවේ B-say.01
+පැවසුවේ say.01
 මෙයයි O
 . O
 
@@ -2597,25 +2597,25 @@ Ventotene O
 මේ O
 යෝජනාවට O
 විරුද්ධව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 මෙය O
 මුළුමනින්ම O
 පිළිගත O
 අතර O
-නැවැත්විය B-stop.01
+නැවැත්විය stop.01
 යුතුය O
 . O
 
 මම O
 පක්ෂව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 මම O
 පක්ෂව O
-ඡන්දය B-vote.01
+ඡන්දය vote.01
 . O
 
 ජාත්‍යන්තර O
@@ -2623,36 +2623,36 @@ Ventotene O
 වෙනත් O
 දේ O
 කෙරෙහි O
-අවධානය B-focus.01
-යොමු B-tend.02
-කරයි I-tend.02
+අවධානය focus.01
+යොමු tend.02
+කරයි tend.02
 . O
 
 ඇයට O
 අපේ O
 සහයෝගිතාව O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 අපි O
 යෝජනාවට O
-සහාය B-support.01
-දෙමු I-support.01
+සහාය support.01
+දෙමු support.01
 . O
 
 ඉරාන O
 විසින්ම O
 මෙම O
 කාර්යය O
-කළ B-perform.01
+කළ perform.01
 යුතුය O
 . O
 
 ඉරානයේ O
 යමක් O
-වෙනස් B-change.01
-කළ I-change.01
-යුතුයි B-need.01
+වෙනස් change.01
+කළ change.01
+යුතුයි need.01
 . O
 
 1890 O
@@ -2660,14 +2660,14 @@ Ventotene O
 එය O
 ප්‍රංශය O
 විසින් O
-විජිතකරණය B-isolate.01
+විජිතකරණය isolate.01
 . O
 
 මම O
 මෙම O
 යෝජනාවට O
-සහාය B-support.01
-දෙමි I-support.01
+සහාය support.01
+දෙමි support.01
 . O
 
 කෙන්යාවට O
@@ -2675,49 +2675,49 @@ Ventotene O
 එම O
 සාර්ථකත්වයේ O
 ප්‍රතිරූපය O
-අහිමි B-lose.02
-වී I-lose.02
+අහිමි lose.02
+වී lose.02
 ඇත O
 . O
 
 ඡන්දය O
 වහාම O
-සිදුවනු B-take.14
+සිදුවනු take.14
 ඇත O
 . O
 
 මෙය O
 හැකි O
 ඉක්මනින් O
-කළ B-do.02
+කළ do.02
 යුතුය O
 . O
 
 ඔවුන් O
 අද O
-රැස්ව B-meet.03
-සිටියහ I-meet.03
+රැස්ව meet.03
+සිටියහ meet.03
 . O
 
 එය O
 සතිය O
 පුරා O
 යුරෝපයට O
-පෝෂණය B-feed.01
-විය I-feed.01
+පෝෂණය feed.01
+විය feed.01
 . O
 
 එය O
 අයිතමය O
-අවසන් B-conclude.01
-කරයි I-conclude.01
+අවසන් conclude.01
+කරයි conclude.01
 . O
 
 නව O
 යෝජනා O
-සලකා B-consider.02
-බලනු I-consider.02
-ලැබේ I-consider.02
+සලකා consider.02
+බලනු consider.02
+ලැබේ consider.02
 . O
 
 අපට O
@@ -2725,18 +2725,18 @@ Ventotene O
 ජාත්‍යන්තර O
 ආර්ථික O
 ගෘහ O
-අවශ්‍යයි B-need.01
+අවශ්‍යයි need.01
 . O
 
 අපි O
 ඔහුව O
-පිළිගන්නවා B-welcome.01
+පිළිගන්නවා welcome.01
 . O
 
 චීනයෙන් O
 අපට O
-අපේක්ෂා B-expect.01
-කළ I-expect.01
+අපේක්ෂා expect.01
+කළ expect.01
 හැක්කේ O
 කුමක්ද O
 . O
@@ -2744,41 +2744,41 @@ Ventotene O
 අපි O
 පළමු O
 සලකුණු O
-දකිමු B-see.01
+දකිමු see.01
 . O
 
 ප්‍රවණතා O
 පැහැදිලිව O
-පෙනේ B-see.01
+පෙනේ see.01
 . O
 
-කතා B-speak.01
-කිරීමට I-speak.01
+කතා speak.01
+කිරීමට speak.01
 අවස්ථාව O
 ගැන O
-ස්තූතියි B-thank.01
+ස්තූතියි thank.01
 . O
 
 මෙය O
 ඉතිහාසය O
 පුරාම O
 අපි O
-දැක B-see.01
-ඇත්තෙමු I-see.01
+දැක see.01
+ඇත්තෙමු see.01
 . O
 
 මම O
-හිතන්නේ B-think.01
+හිතන්නේ think.01
 අපි O
 එය O
-මතක B-remember.01
+මතක remember.01
 යුතුයි O
 . O
 
 මම O
 ව්‍යවස්ථාව O
-කියවා B-read.01
-ඇත්තෙමි I-read.01
+කියවා read.01
+ඇත්තෙමි read.01
 . O
 
 වෝර්ට්මන් O
@@ -2786,8 +2786,8 @@ Ventotene O
 මහත්මිය O
 සේවා O
 ගැන O
-කතා B-talk.01
-කළාය I-talk.01
+කතා talk.01
+කළාය talk.01
 . O
 
 මෙය O
@@ -2795,24 +2795,24 @@ Ventotene O
 වැදගත් O
 බව O
 මම O
-එකඟ B-agree.01
-වෙමි I-agree.01
+එකඟ agree.01
+වෙමි agree.01
 . O
 
 මට O
 ඊට O
 වඩා O
-එකඟ B-agree.01
-විය I-agree.01
+එකඟ agree.01
+විය agree.01
 නොහැක O
 . O
 
 එයට O
 සමාජ O
 හවුල්කරුවන්ගේ O
-සහාය B-support.01
-ලැබී I-support.01
-තිබේ I-support.01
+සහාය support.01
+ලැබී support.01
+තිබේ support.01
 . O
 
 වශයෙන්ම O
@@ -2820,19 +2820,19 @@ Ventotene O
 අවප්‍රමාණය O
 අපගේ O
 න්‍යාය O
-පවතී B-remain.01
+පවතී remain.01
 . O
 
 මෙම O
 මුල O
 කිසිවක් O
-වියදම් B-cost.01
+වියදම් cost.01
 කිරීමට O
 නැත O
 . O
 
 අප O
-සොයාගත් B-discover.01
+සොයාගත් discover.01
 දුර්වලතා O
 මොනවාද O
 . O
@@ -2842,45 +2842,45 @@ Ventotene O
 යෝජනාව O
 යැයි O
 මම O
-විශ්වාස B-believe.01
-කරමි I-believe.01
+විශ්වාස believe.01
+කරමි believe.01
 . O
 
 අපි O
-යෝජනා B-propose.01
-කරන්නේ I-propose.01
+යෝජනා propose.01
+කරන්නේ propose.01
 කුමක්ද O
 . O
 
-කළ B-do.02
+කළ do.02
 යුතු O
 දේ O
 අපි O
 මූලික O
-දනිමු B-know.01
+දනිමු know.01
 . O
 
 කෙසේ O
 මම O
 පෞද්ගලිකව O
 යථාර්ථවාදය O
-ඉල්ලා B-urge.01
-සිටිමි I-urge.01
+ඉල්ලා urge.01
+සිටිමි urge.01
 . O
 
 වශයෙන්ම O
 අපි O
 පර්යේෂණ O
 වලින් O
-ආරම්භ B-start.01
-කළෙමු I-start.01
+ආරම්භ start.01
+කළෙමු start.01
 . O
 
 අපි O
 තවත් O
 ජෛව O
-නිපදවිය B-develop.02
-යුතුයි B-need.01
+නිපදවිය develop.02
+යුතුයි need.01
 . O
 
 අපි O
@@ -2889,12 +2889,12 @@ Ventotene O
 ඉතා O
 උණුසුම් O
 විවාද O
-කර B-have.03
-ඇත්තෙමු I-have.03
+කර have.03
+ඇත්තෙමු have.03
 . O
 
 එය O
-සිදුවන්නේ B-happen.01
+සිදුවන්නේ happen.01
 කෙසේද O
 . O
 
