@@ -342,14 +342,13 @@ def get_chunk_type(tok, idx_to_tag):
     """
     Args:
         tok: id of token, ex 4
-        idx_to_tag: dictionary {4: "B-PER", ...}
+        idx_to_tag: dictionary {4: "ARG1", ...}
     Returns:
-        tuple: "B", "PER"
+        tag: "ARG1"
     """
     tag_name = idx_to_tag[tok]
-    tag_class = tag_name.split('+')[0]
-    tag_type = tag_name.split('+')[-1]
-    return tag_class, tag_type
+    tag = tag_name
+    return tag
 
 
 def get_chunks(seq, tags):
@@ -360,12 +359,12 @@ def get_chunks(seq, tags):
     Returns:
         list of (chunk_type, chunk_start, chunk_end)
     Example:
-        seq = [4, 5, 0, 3]
-        tags = {"B-PER": 4, "I-PER": 5, "B-LOC": 3}
-        result = [("PER", 0, 2), ("LOC", 3, 4)]
+        seq = [4, 4, 3, 3]
+        tags = {"ARG1": 4, "ARG1": 5, "ARG2": 3}
+        result = [("ARG1", 0, 2), ("ARG2", 2, 4)]
     """
     # if config.task=='predId':
-    #     tags[NONE]=55555
+    tags[NONE]=55555
     default = tags[NONE]
     idx_to_tag = {idx: tag for tag, idx in tags.items()}
     chunks = []
@@ -380,13 +379,13 @@ def get_chunks(seq, tags):
 
         # End of a chunk + start of a chunk!
         elif tok != default:
-            tok_chunk_class, tok_chunk_type = get_chunk_type(tok, idx_to_tag)
+            tok_chunk = get_chunk_type(tok, idx_to_tag)
             if chunk_type is None:
-                chunk_type, chunk_start = tok_chunk_type, i
-            elif tok_chunk_type != chunk_type or tok_chunk_class == "B":
+                chunk_type, chunk_start = tok_chunk, i
+            elif tok_chunk != chunk_type:
                 chunk = (chunk_type, chunk_start, i)
                 chunks.append(chunk)
-                chunk_type, chunk_start = tok_chunk_type, i
+                chunk_type, chunk_start = tok_chunk, i
         else:
             pass
 
