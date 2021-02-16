@@ -39,6 +39,7 @@
 
 9. logs are stored in `/results` directory
 
+```NOTE: ServerVersionDirectSinSRL directory consists the REST implementation of the project```
 
 ### When run in COLAB
 execute following code snippet inside the browser console to remain connected the colab session
