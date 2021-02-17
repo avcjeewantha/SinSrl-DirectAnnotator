@@ -364,7 +364,7 @@ def get_chunks(seq, tags):
         result = [("ARG1", 0, 2), ("ARG2", 2, 4)]
     """
     # if config.task=='predId':
-    tags[NONE]=55555
+    # tags[NONE]=55555
     default = tags[NONE]
     idx_to_tag = {idx: tag for tag, idx in tags.items()}
     chunks = []
