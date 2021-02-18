@@ -166,7 +166,12 @@ class BaseModel(object):
                     self.logger.info("- early stopping {} epochs without " \
                                      "improvement".format(nepoch_no_imprv))
                     break
-        return params
+
+        model_detail = " , ".join(
+            [" : ".join(str(element) for element in item) for item in param_dic.items() if (item[0] != "best_score")])
+        model_dic = {"model_detail": model_detail, "epoch_number": epoch_list, "model_acc": accuracy_list}
+
+        return {"model_dic": model_dic, "params":params}
 
     def evaluate(self, test):
         """Evaluate model on test set
