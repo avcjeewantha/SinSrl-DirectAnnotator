@@ -1,0 +1,27 @@
+-DOCSTART- O
+
+තත්වය B-ARG0
+නැවත-B-repeat.01  B-repeat.01
+නැවතත් O
+සිදුවෙමින් O
+පවතී O
+. O
+
+මම B-ARG0
+හිතන්නේ-B-think.01  B-think.01
+මෙය B-ARG1
+අපේ I-ARG1
+සැබෑ I-ARG1
+ඉලක්කය I-ARG1
+විය I-ARG1
+යුතුයි I-ARG1
+. O
+මම O
+හිතන්නේ O
+මෙය B-ARG1
+අපේ B-ARG2
+සැබෑ I-ARG2
+ඉලක්කය I-ARG2
+විය-B-be.01  B-be.01
+යුතුයි B-ARGM-MOD
+. O
