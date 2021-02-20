@@ -53,4 +53,4 @@ setInterval(ClickConnect,60000)
 
 ```
 
-#####[View the previous research](http://www.colips.org/conferences/ialp2020/proceedings/papers/IALP2020_P51.pdf)
+[View the previous research](http://www.colips.org/conferences/ialp2020/proceedings/papers/IALP2020_P51.pdf)
