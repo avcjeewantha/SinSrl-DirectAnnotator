@@ -1,4 +1,4 @@
-## Rest API for සිංSRL - Direct Annotator
+## Rest API for සිංSRL-Direct Annotator
 
 1. Add embeddings and predId, srlId model train data into the data folder
 2. Add trained models into the results folder as same path as the training result folder

@@ -1,4 +1,4 @@
-# direct-sin-srl
+# සිංSRL-Direct Annotator
 
 1. First satisfy the following requirements
     
