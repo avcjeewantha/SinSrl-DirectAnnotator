@@ -5,6 +5,7 @@
     `python 3.6`  
     `tensorflow 1.4.0`  
     `gensim 3.4.0`  
+    `flask-cors`
     
 2. Training data should be in following directories
 
